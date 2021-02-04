@@ -1,5 +1,5 @@
 {
-  "name": "church-apps",
+  "name": "churchapps",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -30,12 +30,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy-staging": "export REACT_APP_STAGE=staging&& npm run build",
-    "exec-deploy-staging": "aws s3 sync build/ s3://staging-church-apps-web",
-    "postdeploy-staging": "aws cloudfront create-invalidation --distribution-id E10ZOMRXVIDU16 --paths /*",
+    "exec-deploy-staging": "aws s3 sync build/ s3://staging-churchapps-web",
+    "postdeploy-staging": "aws cloudfront create-invalidation --distribution-id E3IQHFLHQK137U --paths /*",
     "deploy-staging": "npm run predeploy-staging && npm run exec-deploy-staging && npm run postdeploy-staging",
     "predeploy-prod": "export REACT_APP_STAGE=prod&& npm run build",
-    "exec-deploy-prod": "aws s3 sync build/ s3://church-apps-web",
-    "postdeploy-prod": "aws cloudfront create-invalidation --distribution-id E2S67R1UFNENG9 --paths /*",
+    "exec-deploy-prod": "aws s3 sync build/ s3://churchapps-web",
+    "postdeploy-prod": "aws cloudfront create-invalidation --distribution-id E2PKBHDPXT4IBE --paths /*",
     "deploy-prod": "npm run predeploy-prod && npm run exec-deploy-prod && npm run postdeploy-prod"
   },
   "eslintConfig": {
