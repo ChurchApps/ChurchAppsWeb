@@ -1,4 +1,5 @@
 import React from "react";
+import { GitHubIssues } from "./GitHubIssues"
 
 export const TabBrochure: React.FC = () => {
     return (
@@ -12,6 +13,8 @@ export const TabBrochure: React.FC = () => {
                 <li><a href="https://github.com/LiveChurchSolutions/StreamingLiveWeb" target="_blank" rel="external">StreamingLiveWeb</a> - The brochure site hosted at <a href="https://streaminglive.church/" target="_blank" rel="external">https://streaminglive.church/</a></li>
                 <li><a href="https://github.com/LiveChurchSolutions/B1Web" target="_blank" rel="external">B1Web</a> - The brochure site hosted at <a href="https://b1.church/" target="_blank" rel="external">https://b1.church/</a></li>
             </ul>
+
+            <GitHubIssues repoNames={["ChurchAppsWeb", "ChumsWeb", "StreamingLiveWeb"]} />
         </div>
     );
 }

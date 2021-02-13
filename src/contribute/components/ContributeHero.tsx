@@ -7,7 +7,7 @@ export const ContributeHero: React.FC = () => {
             <Container>
                 <Row>
                     <Col lg={{ span: 8, offset: 2 }} className="text-center">
-                        <h1>Completely <span>Free, Open-Source</span><br />Apps for Churches.</h1>
+                        <h1>Contribute to<br /><span>Completely Free, Open-Source</span><br />Apps for Churches.</h1>
                     </Col>
                 </Row>
                 <div style={{ marginTop: 20 }}>

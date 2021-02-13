@@ -1,6 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap"
-
+import { GitHubIssues } from "./GitHubIssues"
 export const TabNode: React.FC = () => {
     return (
         <div className="contributeTab">
@@ -21,7 +20,8 @@ export const TabNode: React.FC = () => {
                 <li><a href="https://github.com/LiveChurchSolutions/B1Api" target="_blank" rel="external">B1Api</a> - Stores the configuration information for the B1 Church mobile app.</li>
             </ul>
 
-            <h4>Open Node.js Issues</h4>
+            <GitHubIssues repoNames={["AccessApi", "MembershipApi", "AttendanceApi", "GivingApi", "StreamingLiveApi", "StreamingLiveChat", "B1Api"]} />
+
         </div>
     );
 }

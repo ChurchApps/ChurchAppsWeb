@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer, Header, ContributeHero, Solutions, WaysToHelp } from "./components"
+import { Footer, Header, ContributeHero, Solutions, WaysToHelp, GetStarted } from "./components"
 
 export const ContributePage = () => {
     return (
@@ -8,7 +8,7 @@ export const ContributePage = () => {
             <ContributeHero />
             <Solutions />
             <WaysToHelp />
-
+            <GetStarted />
             <Footer />
         </>
     );
