@@ -31,7 +31,7 @@ export const GitHubIssues: React.FC<Props> = (props) => {
                         result.push({
                             repoName: item.repository_url.replace("https://api.github.com/repos/LiveChurchSolutions/", ""),
                             title: item.title,
-                            url: item.url,
+                            url: item.html_url,
                             number: item.number
                         });
                     });
