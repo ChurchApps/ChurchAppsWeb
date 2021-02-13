@@ -1,5 +1,5 @@
 import React from "react";
-import { GitHubIssue, ApiHelper } from "../../helpers";
+import { GitHubIssue } from "../../helpers";
 
 interface Props { repoNames: string[] }
 
@@ -55,7 +55,7 @@ export const GitHubIssues: React.FC<Props> = (props) => {
         return <>{result}</>
     }
 
-    React.useEffect(() => loadData(), [props.repoNames]);
+    React.useEffect(loadData, [props.repoNames, loadData]);
 
     if (issues.length === 0) return <></>;
     else {

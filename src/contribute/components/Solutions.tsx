@@ -16,7 +16,7 @@ export const Solutions: React.FC = () => {
                         </ul>
                     </Col>
                     <Col lg={6}>
-                        <img src="/images/apps.png" className="img-fluid" />
+                        <img src="/images/apps.png" className="img-fluid" alt="apps" />
                     </Col>
                 </Row>
             </Container>
