@@ -8,7 +8,7 @@ export const Solutions: React.FC = () => {
                 <Row>
                     <Col lg={8}>
                         <h2>Our Solutions</h2>
-                        <ul>
+                        <ul className="checkList">
                             <li><b>CHUMS</b> (<u>Chu</u>rch <u>M</u>anagement <u>S</u>oftware) – This is the backend office component to enable churches to track key data such as members, groups, attendance, giving, and shepherding progress.</li>
                             <li><b>CHUMS Checkin</b> – A self-checkin and child pickup solution that utilizes low-cost tablets to allow members to indicate which services and groups they are attending.  The software prints name tags for children and pick-up slips for parents with matching unique codes to help ensure children are only picked up by the parents.</li>
                             <li><b>StreamingLive</b> – An online platform that wraps a live stream from popular platforms such as YouTube, Facebook and Vimeo with content and resources to help keep the church connected to one another.  This includes a live chat feature with private prayer requests, the ability to embed sermon notes and provide links to giving, next steps and other common needs.</li>
