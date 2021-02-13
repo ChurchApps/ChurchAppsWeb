@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Home } from "./Home";
+import { ContributePage } from "./contribute/ContributePage";
 import { Privacy } from "./Privacy";
 import { Terms } from "./Terms";
 import { Switch, Route, useLocation } from "react-router-dom";
@@ -19,6 +20,7 @@ export const Routing: React.FC = () => {
     <Switch>
       <Route path="/privacy"><Privacy /></Route>
       <Route path="/terms"><Terms /></Route>
+      <Route path="/contribute"><ContributePage /></Route>
       <Route path="/"><Home /></Route>
     </Switch>
   );
