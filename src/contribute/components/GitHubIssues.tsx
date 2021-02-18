@@ -17,7 +17,7 @@ export const GitHubIssues: React.FC<Props> = (props) => {
         }
     }
 
-    const loadData = () => {
+    const loadData = React.useCallback(() => {
         const promises: Promise<any>[] = [];
         props.repoNames.forEach(repo => {
             const url = "https://api.github.com/repos/LiveChurchSolutions/" + repo + "/issues?state=open";
@@ -41,7 +41,7 @@ export const GitHubIssues: React.FC<Props> = (props) => {
             });
             setIssues(result);
         });
-    }
+    }, [props.repoNames]);
 
     const getItems = () => {
         const result: JSX.Element[] = [];
