@@ -33,7 +33,7 @@ export class EnvironmentHelper {
     static initProd = () => {
         EnvironmentHelper.AccessApi = "https://accessapi.churchapps.org";
         EnvironmentHelper.AppUrl = "https://accounts.churchapps.org"
-        EnvironmentHelper.GoogleAnalyticsTag = "UA-164774603-4";
+        EnvironmentHelper.GoogleAnalyticsTag = "UA-164774603-6";
     }
 
 }
