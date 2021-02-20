@@ -36,7 +36,7 @@ export const HomeRegister: React.FC = () => {
             setProcessing(true);
             btn.innerHTML = "Registering. Please wait...";
             const loginResp = await ApiHelper.postAnonymous("/churches/register", register, "AccessApi");
-            if (loginResp.errors !== undefined) { setErrors(errors); return 0; }
+            if (loginResp.errors !== undefined) { setErrors(loginResp.errors); }
             else setRedirectUrl(EnvironmentHelper.AppUrl);
         }
 
