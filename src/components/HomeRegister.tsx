@@ -10,6 +10,7 @@ export const HomeRegister: React.FC = () => {
     const [lastName, setLastName] = React.useState("");
     const [errors, setErrors] = React.useState<string[]>([]);
     const [redirectUrl, setRedirectUrl] = React.useState("");
+    const [infoMessage, setInfoMessage] = React.useState([]);
 
     const validateEmail = (email: string) => { return (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(email)); }
 
@@ -35,15 +36,37 @@ export const HomeRegister: React.FC = () => {
         if (validate()) {
             setProcessing(true);
             btn.innerHTML = "Registering. Please wait...";
-            const loginResp = await ApiHelper.postAnonymous("/churches/register", register, "AccessApi");
-            if (loginResp.errors !== undefined) { setErrors(errors); return 0; }
-            else setRedirectUrl(EnvironmentHelper.AppUrl);
+            // check if user already exist and if so, return user's associated churches
+            const verifyResponse = await ApiHelper.postAnonymous("/users/verifyCredentials", {email: register.email, password: register.password}, "AccessApi");
+            if (verifyResponse.errors !== undefined) {
+                setErrors(verifyResponse.errors);
+                
+                btn.innerHTML = "Register"
+                btn.removeAttribute("disabled");
+                setProcessing(false);
+                return;
+            }
+            if (verifyResponse.churches !== undefined) {
+                const churchNames = verifyResponse.churches.map((e: any) => <b>{e}</b>);
+                const newChurchMessage = <>Would you like to register a new church of '<b>{register.churchName}</b>'?</>; 
+                setInfoMessage(["You are already associated with the following churches:", ...churchNames, newChurchMessage]);
+                return;
+            }
+
+            await registerChurch();
         }
 
         btn.innerHTML = "Register"
         btn.removeAttribute("disabled");
         setProcessing(false);
 
+    }
+
+    const registerChurch = async () => {
+        register.displayName = firstName + " " + lastName;
+        const loginResp = await ApiHelper.postAnonymous("/churches/register", register, "AccessApi");
+        if (loginResp.errors !== undefined) { setErrors(loginResp.errors); setInfoMessage([]) }
+        else setRedirectUrl(EnvironmentHelper.AppUrl);
     }
 
 
@@ -53,6 +76,7 @@ export const HomeRegister: React.FC = () => {
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInfoMessage([])
         const val = e.currentTarget.value;
         var r = { ...register };
         switch (e.currentTarget.name) {
@@ -64,6 +88,11 @@ export const HomeRegister: React.FC = () => {
             case "password": r.password = val; break;
         }
         setRegister(r);
+    }
+
+    const handleNo = () => {
+        setInfoMessage([])
+        setProcessing(false)
     }
 
     if (redirectUrl === "") {
@@ -108,7 +137,17 @@ export const HomeRegister: React.FC = () => {
                             <div className="form-group">
                                 <input type="password" className="form-control" placeholder="Password" name="password" value={register.password} onChange={handleChange} />
                             </div>
-                            <Button variant="success" block onClick={handleRegister}>Register for Free</Button>
+                            <ErrorMessages errors={infoMessage} />
+                            {
+                                infoMessage.length > 0 && (
+                                <Row className="mb-3">
+                                    <Col><Button variant="danger" block onClick={handleNo}>No</Button></Col>
+                                    <Col><Button variant="success" block onClick={registerChurch}>Yes</Button></Col>
+                                </Row>
+                                )
+                            }
+
+                             { infoMessage.length === 0 && <Button variant="success" block onClick={handleRegister}>Register for Free</Button>}
 
 
                         </Col>
