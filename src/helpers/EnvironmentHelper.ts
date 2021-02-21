@@ -25,7 +25,7 @@ export class EnvironmentHelper {
     //NOTE: None of these values are secret.
     static initStaging = () => {
         EnvironmentHelper.AccessApi = "https://accessapi.staging.churchapps.org";
-        EnvironmentHelper.AppUrl = "https://app.staging.churchapps..org"
+        EnvironmentHelper.AppUrl = "https://accounts.staging.churchapps.org"
         EnvironmentHelper.GoogleAnalyticsTag = "";
     }
 
