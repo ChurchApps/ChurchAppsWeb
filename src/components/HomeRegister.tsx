@@ -10,9 +10,7 @@ export const HomeRegister: React.FC = () => {
     const [lastName, setLastName] = React.useState("");
     const [errors, setErrors] = React.useState<string[]>([]);
     const [redirectUrl, setRedirectUrl] = React.useState("");
-    const [infoMessage, setInfoMessage] = React.useState<string[]>([]);
-
-    const registerBtnRef = React.useRef(null);
+    const [infoMessage, setInfoMessage] = React.useState([]);
 
     const validateEmail = (email: string) => { return (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(email)); }
 
@@ -49,7 +47,9 @@ export const HomeRegister: React.FC = () => {
                 return;
             }
             if (verifyResponse.churches !== undefined) {
-                setInfoMessage(["You are already associated with the following churches:", ...verifyResponse.churches, `Would you like to register a new church named '${register.churchName}'?`]);
+                const churchNames = verifyResponse.churches.map((e: any) => <b>{e}</b>);
+                const newChurchMessage = <>Would you like to register a new church of '<b>{register.churchName}</b>'?</>; 
+                setInfoMessage(["You are already associated with the following churches:", ...churchNames, newChurchMessage]);
                 return;
             }
 
@@ -147,7 +147,7 @@ export const HomeRegister: React.FC = () => {
                                 )
                             }
 
-                             { infoMessage.length === 0 && <Button variant="success" ref={registerBtnRef} block onClick={handleRegister}>Register for Free</Button>}
+                             { infoMessage.length === 0 && <Button variant="success" block onClick={handleRegister}>Register for Free</Button>}
 
 
                         </Col>
