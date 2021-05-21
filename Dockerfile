@@ -11,6 +11,6 @@ RUN git submodule init && git submodule update
 
 RUN npm install
 
-CMD npm run $ENVIRONMENT
+CMD npm start
 
 EXPOSE 3400
