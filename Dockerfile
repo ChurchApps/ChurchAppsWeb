@@ -1,17 +1,25 @@
 # stage1 - build react app first 
 FROM node:12-alpine as build
 
+ARG PORT=3400
+ARG REACT_APP_ACCESS_API=https://accessapi.staging.churchapps.org
+ARG REACT_APP_APP_URL=https://accounts.staging.churchapps.org
+ARG REACT_APP_GOOGLE_ANALYTICS=''
+
 RUN apk update
 
 WORKDIR /app
+
+ENV PORT=${PORT} \
+    REACT_APP_ACCESS_API=${REACT_APP_ACCESS_API} \
+    REACT_APP_APP_URL=${REACT_APP_APP_URL} \
+    REACT_APP_GOOGLE_ANALYTICS=${REACT_APP_GOOGLE_ANALYTICS}
 
 COPY package.json package-lock.json /app/
 
 RUN npm install
 
 COPY . /app
-
-COPY dotenv.sample.txt .env
 
 RUN npm run build
 
