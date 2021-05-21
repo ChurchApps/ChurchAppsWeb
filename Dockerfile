@@ -1,16 +1,29 @@
-FROM node:12-alpine
+# stage1 - build react app first 
+FROM node:12-alpine as build
 
-RUN apk update && \
-    apk add git
+RUN apk update
 
 WORKDIR /app
 
-RUN git clone https://github.com/LiveChurchSolutions/ChurchAppsWeb.git .
-
-RUN git submodule init && git submodule update
+COPY package.json package-lock.json /app/
 
 RUN npm install
 
-CMD npm start
+COPY . /app
+
+COPY dotenv.sample.txt .env
+
+RUN npm run build
+
+# stage 2 - build the final image and copy the react build files
+FROM nginx:1.19-alpine
+
+COPY --from=build /app/build /usr/share/nginx/html
+
+RUN rm /etc/nginx/conf.d/default.conf
+
+COPY nginx.conf /etc/nginx/conf.d
 
 EXPOSE 3400
+
+CMD ["nginx", "-g", "daemon off;"]
