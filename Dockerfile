@@ -1,37 +1,26 @@
-# stage1 - build react app first 
-FROM node:12-alpine as build
+# pull offical base image
+FROM node:12-alpine
 
-ARG PORT=3400
-ARG REACT_APP_ACCESS_API=https://accessapi.staging.churchapps.org
-ARG REACT_APP_APP_URL=https://accounts.staging.churchapps.org
-ARG REACT_APP_GOOGLE_ANALYTICS=''
-
-RUN apk update
-
+# set working directory
 WORKDIR /app
 
-ENV PORT=${PORT} \
-    REACT_APP_ACCESS_API=${REACT_APP_ACCESS_API} \
-    REACT_APP_APP_URL=${REACT_APP_APP_URL} \
-    REACT_APP_GOOGLE_ANALYTICS=${REACT_APP_GOOGLE_ANALYTICS}
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
-COPY package.json package-lock.json /app/
+# install app dependencies
+COPY package.json ./
+COPY package-lock.json ./
+# when running a single react container the process exits while starting 
+# development server but setting CI to true resolves the issue. 
+# Source - https://github.com/facebook/create-react-app/issues/8688#issuecomment-602084087
+RUN CI=true
+RUN npm install --silent
 
-RUN npm install
+# add app
+COPY . ./
 
-COPY . /app
+# start app
+CMD ["npm", "start"]
 
-RUN npm run build
-
-# stage 2 - build the final image and copy the react build files
-FROM nginx:1.19-alpine
-
-COPY --from=build /app/build /usr/share/nginx/html
-
-RUN rm /etc/nginx/conf.d/default.conf
-
-COPY nginx.conf /etc/nginx/conf.d
-
+# expose port
 EXPOSE 3400
-
-CMD ["nginx", "-g", "daemon off;"]
