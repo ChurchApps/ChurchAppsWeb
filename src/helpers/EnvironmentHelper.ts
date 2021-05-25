@@ -19,7 +19,7 @@ export class EnvironmentHelper {
     static initDev = () => {
         EnvironmentHelper.AccessApi = process.env.REACT_APP_ACCESS_API || "";
         EnvironmentHelper.GoogleAnalyticsTag = process.env.REACT_APP_GOOGLE_ANALYTICS || "";
-        EnvironmentHelper.AppUrl = process.env.REACT_APP_APP_URL || ""
+        EnvironmentHelper.AppUrl = process.env.REACT_APP_ACCOUNTS_APP_URL || ""
     }
 
     //NOTE: None of these values are secret.
