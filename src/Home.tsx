@@ -4,14 +4,12 @@ import { Footer, Header } from "./components"
 import { HomeRegister } from "./components/HomeRegister"
 import { HomeHero } from "./components/HomeHero"
 
-export const Home = () => {
-    return (
-        <>
-            <Header />
-            <HomeHero />
+export const Home = () => (
+  <>
+    <Header />
+    <HomeHero />
 
-            <HomeRegister />
-            <Footer />
-        </>
-    );
-}
+    <HomeRegister />
+    <Footer />
+  </>
+)

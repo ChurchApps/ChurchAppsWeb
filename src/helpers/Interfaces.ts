@@ -11,5 +11,4 @@ export interface PersonInterface { id?: string, name: NameInterface, contactInfo
 export interface ServiceInterface { id?: string, campusId?: string, name?: string }
 export interface ServiceTimeInterface { id?: string, name?: string, longName?: string, serviceId?: string }
 
-
 export interface GitHubIssue { url: string, title: string, repoName: string, number: number }
