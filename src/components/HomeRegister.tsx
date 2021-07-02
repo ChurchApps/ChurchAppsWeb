@@ -66,9 +66,9 @@ export const HomeRegister: React.FC = () => {
     register.displayName = firstName + " " + lastName;
 
     const loginResp: LoginResponseInterface = await ApiHelper.postAnonymous("/churches/register", register, "AccessApi");
-    const church = loginResp.churches[0];
+    const church = loginResp.churches.filter(c => c.subDomain === register.subDomain)[0];
     church.apis.forEach(api => { ApiHelper.setPermissions(api.keyName, api.jwt, api.permissions) });
-    const { person }: { person: PersonInterface} = await ApiHelper.post("/churches/init", { user: loginResp.user }, "MembershipApi");
+    const { person }: { person: PersonInterface} = await ApiHelper.post("/churches/init", { user: { displayName: firstName + " " + lastName } }, "MembershipApi");
     await ApiHelper.post("/userchurch", { personId: person.id }, "AccessApi");
 
     if (loginResp.errors !== undefined) { setErrors(loginResp.errors); setInfoMessage([]) }
