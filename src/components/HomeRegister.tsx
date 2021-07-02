@@ -1,5 +1,5 @@
 import React from "react";
-import { ApiHelper, RegisterInterface, ErrorMessages, EnvironmentHelper } from ".";
+import { ApiHelper, RegisterInterface, ErrorMessages, EnvironmentHelper, LoginResponseInterface, PersonInterface } from ".";
 import { Row, Col, Container, Button } from "react-bootstrap"
 
 export const HomeRegister: React.FC = () => {
@@ -64,7 +64,13 @@ export const HomeRegister: React.FC = () => {
 
   const registerChurch = async () => {
     register.displayName = firstName + " " + lastName;
-    const loginResp = await ApiHelper.postAnonymous("/churches/register", register, "AccessApi");
+
+    const loginResp: LoginResponseInterface = await ApiHelper.postAnonymous("/churches/register", register, "AccessApi");
+    const church = loginResp.churches[0];
+    church.apis.forEach(api => { ApiHelper.setPermissions(api.keyName, api.jwt, api.permissions) });
+    const { person }: { person: PersonInterface} = await ApiHelper.post("/churches/init", { user: loginResp.user }, "MembershipApi");
+    await ApiHelper.post("/userchurch", { personId: person.id }, "AccessApi");
+
     if (loginResp.errors !== undefined) { setErrors(loginResp.errors); setInfoMessage([]) }
     else setRedirectUrl(EnvironmentHelper.AppUrl);
   }
