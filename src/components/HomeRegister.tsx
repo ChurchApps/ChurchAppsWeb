@@ -1,29 +1,25 @@
 import React from "react";
-import { ApiHelper, RegisterInterface, ErrorMessages, EnvironmentHelper, LoginResponseInterface, PersonInterface } from ".";
+import { ApiHelper, RegisterInterface, ErrorMessages, EnvironmentHelper, LoginResponseInterface, PersonInterface, ValidateHelper } from ".";
 import { Row, Col, Container, Button } from "react-bootstrap"
 
 export const HomeRegister: React.FC = () => {
 
-  const [register, setRegister] = React.useState<RegisterInterface>({ churchName: "", displayName: "", password: "", email: "", subDomain: "" });
-  const [processing, setProcessing] = React.useState(false);
-  const [firstName, setFirstName] = React.useState("");
-  const [lastName, setLastName] = React.useState("");
+  const [register, setRegister] = React.useState<RegisterInterface>({ churchName: "", firstName: "", lastName: "", password: "", email: "", subDomain: "" });
+  const [processing, setProcessing] = React.useState<boolean>(false);
   const [errors, setErrors] = React.useState<string[]>([]);
   const [redirectUrl, setRedirectUrl] = React.useState("");
   const [infoMessage, setInfoMessage] = React.useState([]);
 
-  const validateEmail = (email: string) => (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(email))
-
   const validate = () => {
     let errors: string[] = [];
     if (register.churchName === "") errors.push("Please enter your church name.")
-    if (firstName === "") errors.push("Please enter your first name.")
-    if (lastName === "") errors.push("Please enter your last name.")
+    if (register.firstName === "") errors.push("Please enter your first name.")
+    if (register.lastName === "") errors.push("Please enter your last name.")
     if (register.subDomain === "") errors.push("Please select a subdomain for your church.")
     if (register.password === "") errors.push("Please enter a password.");
     else if (register.password.length < 6) errors.push("Passwords must be at least 6 characters.");
     if (register.email === "") errors.push("Please enter your email address.");
-    else if (!validateEmail(register.email)) errors.push("Please enter a valid email address");
+    else if (!ValidateHelper.email(register.email)) errors.push("Please enter a valid email address");
     setErrors(errors);
     return errors.length === 0;
   }
@@ -63,12 +59,11 @@ export const HomeRegister: React.FC = () => {
   }
 
   const registerChurch = async () => {
-    register.displayName = firstName + " " + lastName;
-
     const loginResp: LoginResponseInterface = await ApiHelper.postAnonymous("/churches/register", register, "AccessApi");
     const church = loginResp.churches.filter(c => c.subDomain === register.subDomain)[0];
     church.apis.forEach(api => { ApiHelper.setPermissions(api.keyName, api.jwt, api.permissions) });
-    const { person }: { person: PersonInterface} = await ApiHelper.post("/churches/init", { user: { displayName: firstName + " " + lastName } }, "MembershipApi");
+    const { firstName, lastName } = register;
+    const { person }: { person: PersonInterface} = await ApiHelper.post("/churches/init", { user: { displayName: `${firstName} ${lastName}` } }, "MembershipApi");
     await ApiHelper.post("/userchurch", { personId: person.id }, "AccessApi");
 
     if (loginResp.errors !== undefined) { setErrors(loginResp.errors); setInfoMessage([]) }
@@ -86,8 +81,8 @@ export const HomeRegister: React.FC = () => {
     let r = { ...register };
     switch (e.currentTarget.name) {
       case "churchName": r.churchName = val; break;
-      case "firstName": setFirstName(val); break;
-      case "lastName": setLastName(val); break;
+      case "firstName": r.firstName = val; break;
+      case "lastName": r.lastName = val; break;
       case "subDomain": r.subDomain = val.toLowerCase().replaceAll(/[^a-z0-9]/ig, ""); break;
       case "email": r.email = val; break;
       case "password": r.password = val; break;
@@ -126,12 +121,12 @@ export const HomeRegister: React.FC = () => {
               <Row>
                 <Col>
                   <div className="form-group">
-                    <input type="text" className="form-control" placeholder="First Name" name="firstName" value={firstName} onChange={handleChange} />
+                    <input type="text" className="form-control" placeholder="First Name" name="firstName" value={register.firstName} onChange={handleChange} />
                   </div>
                 </Col>
                 <Col>
                   <div className="form-group">
-                    <input type="text" className="form-control" placeholder="Last Name" name="lastName" value={lastName} onChange={handleChange} />
+                    <input type="text" className="form-control" placeholder="Last Name" name="lastName" value={register.lastName} onChange={handleChange} />
                   </div>
                 </Col>
               </Row>
