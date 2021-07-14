@@ -1,5 +1,5 @@
 import React from "react";
-import { ApiHelper, RegisterInterface, ErrorMessages, EnvironmentHelper, LoginResponseInterface, PersonInterface, ValidateHelper } from ".";
+import { ApiHelper, RegisterInterface, ErrorMessages, EnvironmentHelper, LoginResponseInterface, PersonInterface, ValidateHelper, PasswordField } from ".";
 import { Row, Col, Container, Button } from "react-bootstrap"
 
 export const HomeRegister: React.FC = () => {
@@ -133,9 +133,7 @@ export const HomeRegister: React.FC = () => {
               <div className="form-group">
                 <input type="text" className="form-control" placeholder="Email" name="email" value={register.email} onChange={handleChange} />
               </div>
-              <div className="form-group">
-                <input type="password" className="form-control" placeholder="Password" name="password" value={register.password} onChange={handleChange} />
-              </div>
+              <PasswordField value={register.password} onChange={handleChange} containerClass="form-group" />
               <ErrorMessages errors={infoMessage} />
               {
                 infoMessage.length > 0 && (
