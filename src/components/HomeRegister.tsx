@@ -133,7 +133,7 @@ export const HomeRegister: React.FC = () => {
               <div className="form-group">
                 <input type="text" className="form-control" placeholder="Email" name="email" value={register.email} onChange={handleChange} />
               </div>
-              <PasswordField value={register.password} onChange={handleChange} />
+              <PasswordField value={register.password} onChange={handleChange} containerClass="form-group" />
               <ErrorMessages errors={infoMessage} />
               {
                 infoMessage.length > 0 && (
