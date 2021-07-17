@@ -19,7 +19,7 @@ export function HomeRegister() {
   const [infoMessage, setInfoMessage] = React.useState([]);
   const formikRef = useRef(null);
 
-  const registerChurch = async (values: RegisterInterface, setErrors?: (errors: FormikErrors<RegisterInterface>) => void ) => {
+  async function registerChurch(values: RegisterInterface, setErrors?: (errors: FormikErrors<RegisterInterface>) => void ) {
     const loginResp: LoginResponseInterface = await ApiHelper.postAnonymous("/churches/register", values, "AccessApi");
 
     if (loginResp.errors) {
