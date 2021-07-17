@@ -1,98 +1,61 @@
-import React from "react";
-import { ApiHelper, RegisterInterface, ErrorMessages, EnvironmentHelper, LoginResponseInterface, PersonInterface, ValidateHelper, PasswordField } from ".";
-import { Row, Col, Container, Button } from "react-bootstrap"
+import React, { useRef } from "react";
+import { ApiHelper, RegisterInterface, ErrorMessages, EnvironmentHelper, LoginResponseInterface, PersonInterface, PasswordField } from ".";
+import { Row, Col, Container, Button, Form, InputGroup } from "react-bootstrap"
+import * as yup from "yup";
+import { Formik, FormikHelpers, FormikErrors } from "formik";
 
-export const HomeRegister: React.FC = () => {
+const schema = yup.object().shape({
+  churchName: yup.string().required("Please enter your church name."),
+  firstName: yup.string().required("Please enter your first name."),
+  lastName: yup.string().required("Please enter your last name."),
+  password: yup.string().required("Please enter a password.").min(6, "Passwords must be at least 6 characters."),
+  email: yup.string().required("Please enter your email address.").email("Please enter a valid email address."),
+  subDomain: yup.string().required("Please select a subdomain for your church.")
+})
 
-  const [register, setRegister] = React.useState<RegisterInterface>({ churchName: "", firstName: "", lastName: "", password: "", email: "", subDomain: "" });
-  const [processing, setProcessing] = React.useState<boolean>(false);
-  const [errors, setErrors] = React.useState<string[]>([]);
+export function HomeRegister() {
+  const [customErrors, setCustomErrors] = React.useState<string[]>([]);
   const [redirectUrl, setRedirectUrl] = React.useState("");
   const [infoMessage, setInfoMessage] = React.useState([]);
+  const formikRef = useRef(null);
 
-  const validate = () => {
-    let errors: string[] = [];
-    if (register.churchName === "") errors.push("Please enter your church name.")
-    if (register.firstName === "") errors.push("Please enter your first name.")
-    if (register.lastName === "") errors.push("Please enter your last name.")
-    if (register.subDomain === "") errors.push("Please select a subdomain for your church.")
-    if (register.password === "") errors.push("Please enter a password.");
-    else if (register.password.length < 6) errors.push("Passwords must be at least 6 characters.");
-    if (register.email === "") errors.push("Please enter your email address.");
-    else if (!ValidateHelper.email(register.email)) errors.push("Please enter a valid email address");
-    setErrors(errors);
-    return errors.length === 0;
-  }
+  async function registerChurch(values: RegisterInterface, setErrors?: (errors: FormikErrors<RegisterInterface>) => void ) {
+    const loginResp: LoginResponseInterface = await ApiHelper.postAnonymous("/churches/register", values, "AccessApi");
 
-  const handleRegister = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    const btn = e.currentTarget;
-    btn.innerHTML = "Validating..."
-    btn.setAttribute("disabled", "disabled");
-    if (validate()) {
-      setProcessing(true);
-      btn.innerHTML = "Registering. Please wait...";
-      // check if user already exist and if so, return user's associated churches
-      const verifyResponse = await ApiHelper.postAnonymous("/users/verifyCredentials", {email: register.email, password: register.password}, "AccessApi");
-      if (verifyResponse.errors !== undefined) {
-        setErrors(verifyResponse.errors);
-
-        btn.innerHTML = "Register"
-        btn.removeAttribute("disabled");
-        setProcessing(false);
-        return;
-      }
-      if (verifyResponse.churches !== undefined) {
-        const churchNames = verifyResponse.churches.map((e: any) => <b>{e}</b>);
-        const newChurchMessage = <>Would you like to register a new church of '<b>{register.churchName}</b>'?</>;
-        setInfoMessage(["You are already associated with the following churches:", ...churchNames, newChurchMessage]);
-        return;
-      }
-
-      await registerChurch();
+    if (loginResp.errors) {
+      let handleError = setErrors;
+      if (!setErrors) handleError = formikRef.current.setErrors;
+      handleError({ subDomain: loginResp.errors[0] })
+      setInfoMessage([])
+      return
     }
-
-    btn.innerHTML = "Register"
-    btn.removeAttribute("disabled");
-    setProcessing(false);
-
-  }
-
-  const registerChurch = async () => {
-    const loginResp: LoginResponseInterface = await ApiHelper.postAnonymous("/churches/register", register, "AccessApi");
-    const church = loginResp.churches.filter(c => c.subDomain === register.subDomain)[0];
+    const church = loginResp.churches.filter(c => c.subDomain === values.subDomain)[0];
     church.apis.forEach(api => { ApiHelper.setPermissions(api.keyName, api.jwt, api.permissions) });
     const { person }: { person: PersonInterface} = await ApiHelper.post("/churches/init", { user: loginResp.user }, "MembershipApi");
     await ApiHelper.post("/userchurch", { personId: person.id }, "AccessApi");
 
-    if (loginResp.errors !== undefined) { setErrors(loginResp.errors); setInfoMessage([]) }
-    else setRedirectUrl(EnvironmentHelper.AppUrl);
+    setRedirectUrl(EnvironmentHelper.AppUrl);
   }
 
-  const getProcessing = () => {
-    if (!processing) return null;
-    else return <div className="alert alert-info" role="alert"><b>Registering...</b> Please wait.  This will take a few seconds.</div>
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInfoMessage([])
-    const val = e.currentTarget.value;
-    let r = { ...register };
-    switch (e.currentTarget.name) {
-      case "churchName": r.churchName = val; break;
-      case "firstName": r.firstName = val; break;
-      case "lastName": r.lastName = val; break;
-      case "subDomain": r.subDomain = val.toLowerCase().replaceAll(/[^a-z0-9]/ig, ""); break;
-      case "email": r.email = val; break;
-      case "password": r.password = val; break;
+  async function handleSubmit(values: RegisterInterface, { setSubmitting, setErrors }: FormikHelpers<RegisterInterface>) {
+    // check if user already exist with this email
+    const verifyResponse = await ApiHelper.postAnonymous("/users/verifyCredentials", {email: values.email, password: values.password}, "AccessApi");
+    if (verifyResponse.errors !== undefined) {
+      setCustomErrors(verifyResponse.errors);
+      return;
     }
-    setRegister(r);
+    if (verifyResponse.churches !== undefined) {
+      const churchNames = verifyResponse.churches.map((e: any) => <b>{e}</b>);
+      const newChurchMessage = <>Would you like to register a new church of '<b>{values.churchName}</b>'?</>;
+      setInfoMessage(["You are already associated with the following churches:", ...churchNames, newChurchMessage]);
+      return;
+    }
+
+    await registerChurch(values, setErrors );
+    setSubmitting(false)
   }
 
-  const handleNo = () => {
-    setInfoMessage([])
-    setProcessing(false)
-  }
+  const initialValues: RegisterInterface = { churchName: "", firstName: "", lastName: "", password: "", email: "", subDomain: "" };
 
   if (redirectUrl === "") {
     return (
@@ -106,46 +69,125 @@ export const HomeRegister: React.FC = () => {
               <div className="title"><span>Sign up for ChurchApps</span></div>
               <h2>Register Your Church</h2>
 
-              {getProcessing()}
-              <ErrorMessages errors={errors} />
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="Church Name" name="churchName" value={register.churchName} onChange={handleChange} />
-              </div>
-              <div className="form-group">
-                <div className="input-group">
-                  <input type="text" name="subDomain" className="form-control" placeholder="yourchurch" value={register.subDomain} onChange={handleChange} />
-                  <div className="input-group-append"><span className="input-group-text">.churchapps.org</span></div>
-                </div>
-              </div>
-              <Row>
-                <Col>
-                  <div className="form-group">
-                    <input type="text" className="form-control" placeholder="First Name" name="firstName" value={register.firstName} onChange={handleChange} />
-                  </div>
-                </Col>
-                <Col>
-                  <div className="form-group">
-                    <input type="text" className="form-control" placeholder="Last Name" name="lastName" value={register.lastName} onChange={handleChange} />
-                  </div>
-                </Col>
-              </Row>
+              <ErrorMessages errors={customErrors} />
+              <Formik
+                validationSchema={schema}
+                onSubmit={handleSubmit}
+                initialValues={initialValues}
+                innerRef={formikRef}
+              >
+                {({
+                  handleSubmit,
+                  handleChange,
+                  values,
+                  touched,
+                  errors,
+                  isSubmitting
+                }) => (
+                  <Form noValidate onSubmit={handleSubmit}>
+                    <Form.Group>
+                      <Form.Control
+                        type="text"
+                        placeholder="Church Name"
+                        name="churchName"
+                        value={values.churchName}
+                        onChange={handleChange}
+                        isInvalid={touched.churchName && !!errors.churchName}
+                      />
+                      <Form.Control.Feedback type="invalid">
+                        {errors.churchName}
+                      </Form.Control.Feedback>
+                    </Form.Group>
+                    <Form.Group>
+                      <InputGroup>
+                        <Form.Control
+                          type="text"
+                          placeholder="yourchurch"
+                          name="subDomain"
+                          value={values.subDomain}
+                          onChange={handleChange}
+                          isInvalid={touched.subDomain && !!errors.subDomain}
+                        />
+                        <InputGroup.Text>.churchapps.org</InputGroup.Text>
+                        <Form.Control.Feedback type="invalid">
+                          {errors.subDomain}
+                        </Form.Control.Feedback>
+                      </InputGroup>
+                    </Form.Group>
+                    <Row>
+                      <Col>
+                        <Form.Group>
+                          <Form.Control
+                            type="text"
+                            placeholder="First Name"
+                            name="firstName"
+                            value={values.firstName}
+                            onChange={handleChange}
+                            isInvalid={touched.firstName && !!errors.firstName}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.firstName}
+                          </Form.Control.Feedback>
+                        </Form.Group>
+                      </Col>
+                      <Col>
+                        <Form.Group>
+                          <Form.Control
+                            type="text"
+                            placeholder="Last Name"
+                            name="lastName"
+                            value={values.lastName}
+                            onChange={handleChange}
+                            isInvalid={touched.lastName && !!errors.lastName}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.lastName}
+                          </Form.Control.Feedback>
+                        </Form.Group>
+                      </Col>
+                    </Row>
+                    <Form.Group>
+                      <Form.Control
+                        type="email"
+                        placeholder="Email"
+                        name="email"
+                        value={values.email}
+                        onChange={handleChange}
+                        isInvalid={touched.email && !!errors.email}
+                      />
 
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="Email" name="email" value={register.email} onChange={handleChange} />
-              </div>
-              <PasswordField value={register.password} onChange={handleChange} containerClass="form-group" />
-              <ErrorMessages errors={infoMessage} />
-              {
-                infoMessage.length > 0 && (
-                  <Row className="mb-3">
-                    <Col><Button variant="danger" block onClick={handleNo}>No</Button></Col>
-                    <Col><Button variant="success" block onClick={registerChurch}>Yes</Button></Col>
-                  </Row>
-                )
-              }
+                      <Form.Control.Feedback type="invalid">
+                        {errors.email}
+                      </Form.Control.Feedback>
+                    </Form.Group>
+                    <Form.Group>
+                      <PasswordField
+                        value={values.password}
+                        onChange={handleChange}
+                        isInvalid={touched.password && !!errors.password}
+                        errorText={errors.password}
+                      />
+                    </Form.Group>
+                    {
+                      infoMessage.length === 0 && (
+                        <Button type="submit" variant="success" block disabled={isSubmitting}>
+                          {isSubmitting ? "Registering. Please wait..." : "Register for Free"}
+                        </Button>
+                      )
+                    }
 
-              { infoMessage.length === 0 && <Button variant="success" block onClick={handleRegister}>Register for Free</Button>}
-
+                    <ErrorMessages errors={infoMessage} />
+                    {
+                      infoMessage.length > 0 && (
+                        <Row className="mb-3">
+                          <Col><Button variant="danger" block onClick={() => setInfoMessage([])}>No</Button></Col>
+                          <Col><Button variant="success" block onClick={() => registerChurch(values)}>Yes</Button></Col>
+                        </Row>
+                      )
+                    }
+                  </Form>
+                )}
+              </Formik>
             </Col>
           </Row>
         </Container>
