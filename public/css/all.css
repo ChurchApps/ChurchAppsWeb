@@ -19,7 +19,7 @@ h2 span {color:#24b8ff;}
 .homeSection {padding-top:70px;padding-bottom: 70px;background-color:#EEE;}
 .homeSection .title {font-size:14px; text-transform: uppercase;margin-bottom: 10px;color:#03a9f4;font-weight: bold;}
 .homeSection .title span {color:#03a9f4;}
-.homeSection.alt { color:#FFF; }
+.homeSection.alt { background-color:#FFF; }
 .homeSection.alt .title { color:#FFF; }
 .homeSection h2 {margin-bottom: 30px; font-size:36px; font-weight: bold; }
 
