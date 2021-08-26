@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import { Home } from "./Home";
 import { ContributePage } from "./contribute/ContributePage";
 import { Privacy } from "./Privacy";
