@@ -6,6 +6,7 @@ import { Terms } from "./Terms";
 import { Routes, Route, useLocation } from "react-router-dom";
 import ReactGA from "react-ga";
 import { EnvironmentHelper } from "./helpers";
+import { EnvironmentPage } from "./environment/EnvironmentPage";
 
 export const Routing: React.FC = () => {
   const location = useLocation();
@@ -19,6 +20,7 @@ export const Routing: React.FC = () => {
     <Routes>
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/terms" element={<Terms />} />
+      <Route path="/contribute/environment" element={<EnvironmentPage />} />
       <Route path="/contribute" element={<ContributePage />} />
       <Route path="/" element={<Home />} />
     </Routes>
