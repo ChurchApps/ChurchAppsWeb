@@ -106,6 +106,21 @@ h2 span {
   color: #FFF;
 }
 
+
+.homeSection.alt {
+  background-image: url('/images/home/members-bg.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+
+.homeSection.alt img {
+  margin-top: 20px;
+}
+
+.homeSection.alt li {
+  color: #DDD;
+}
+
 .homeSection h2 {
   margin-bottom: 30px;
   font-size: 36px;
@@ -188,19 +203,6 @@ h2 span {
   font-weight: bold;
 }
 
-#membersSection {
-  background-image: url('/images/home/members-bg.jpg');
-  background-position: center center;
-  background-size: cover;
-}
-
-#membersSection img {
-  margin-top: 20px;
-}
-
-#membersSection li {
-  color: #DDD;
-}
 
 #givingSection .title {
   margin-top: 30px;

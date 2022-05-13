@@ -16,7 +16,7 @@ export const GetStarted: React.FC = () => (
         </Col>
       </Row>
       <Row>
-        <Col><a href="https://github.com/LiveChurchSolutions/Docker" className="btn btn-primary btn-block btn-lg">Start Coding</a></Col>
+        <Col><a href="/contribute/environment" className="btn btn-primary btn-block btn-lg">Start Coding</a></Col>
         <Col><a href="https://join.slack.com/t/livechurchsolutions/shared_invite/zt-i88etpo5-ZZhYsQwQLVclW12DKtVflg" className="btn btn-success btn-block btn-lg">Let's Talk</a></Col>
       </Row>
     </Container>
