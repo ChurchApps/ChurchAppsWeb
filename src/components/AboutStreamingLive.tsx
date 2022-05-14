@@ -13,7 +13,7 @@ export const AboutStreamingLive: React.FC = () => (
         </Col>
         <Col lg={4}><img src="/images/home/solutions/streaminglive.png" alt="StreamingLive" className="img-fluid" /></Col>
       </Row>
-      <div className="text-center"><Button variant="success" style={{ paddingTop: 15, paddingBottom: 15, paddingLeft: 25, paddingRight: 25 }} href="https://streaminglive.church/">START STREAMING TODAY</Button></div>
+      <div className="text-center"><Button variant="success" style={{ paddingTop: 15, paddingBottom: 15, paddingLeft: 25, paddingRight: 25 }} href="https://streaminglive.church/">Start Streaming Today</Button></div>
     </Container>
   </div>
 )

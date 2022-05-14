@@ -13,7 +13,7 @@ export function HomeRegister() {
   }
 
   return (
-    <div className="homeSection alt" id="registerSection">
+    <div className="homeSection" id="registerSection">
       <Container>
         <div id="register"></div>
         <Row>

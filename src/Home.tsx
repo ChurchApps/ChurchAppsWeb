@@ -5,16 +5,16 @@ import { HomeHero } from "./components/HomeHero"
 import { AboutLessons } from "./components/AboutLessons"
 import { AboutChums } from "./components/AboutChums"
 import { AboutStreamingLive } from "./components/AboutStreamingLive"
+import { AboutB1 } from "./components/AboutB1";
 
 export const Home = () => (
   <>
     <Header />
     <HomeHero />
-
-    <AboutLessons />
-    <AboutStreamingLive />
     <AboutChums />
-
+    <AboutLessons />
+    <AboutB1 />
+    <AboutStreamingLive />
     <HomeRegister />
     <Footer />
   </>

@@ -7,7 +7,7 @@ export const GetStarted: React.FC = () => (
       <h2>Ready to Get Started?</h2>
       <Row>
         <Col>
-          <p>We use Docker to help make the initial setup as easy as possible for developers.  If you haven't already, install <a href="https://www.docker.com/products/docker-desktop" rel="noopener noreferrer" target="_blank">Docker Desktop</a> and you can be up and running in minutes.  Once it is installed follow the setup instructions in the <a href="https://github.com/LiveChurchSolutions/Docker" target="_blank" rel="noopener noreferrer">README</a>.</p>
+          <p>We've tried to make getting started as easy as possible by providing a detailed guide and videos showing exactly how to set up each product.</p>
 
         </Col>
         <Col>

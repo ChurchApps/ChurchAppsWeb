@@ -13,7 +13,7 @@ export const AboutChums: React.FC = () => (
         </Col>
         <Col lg={4}><img src="/images/home/solutions/chums.png" alt="CHUMS" className="img-fluid" /></Col>
       </Row>
-      <div className="text-center"><Button variant="success" style={{ paddingTop: 15, paddingBottom: 15, paddingLeft: 25, paddingRight: 25 }} href="https://chums.org/">IMPROVE YOUR WORKFLOWS</Button></div>
+      <div className="text-center"><Button variant="success" style={{ paddingTop: 15, paddingBottom: 15, paddingLeft: 25, paddingRight: 25 }} href="https://chums.org/">Improve Your Workflows</Button></div>
     </Container>
   </div>
 )

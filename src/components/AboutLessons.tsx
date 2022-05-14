@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap"
 
 export const AboutLessons: React.FC = () => (
-  <div className="homeSection">
+  <div className="homeSection alt">
     <Container>
       <h2>Lessons.church - <span>Free Curriculum  for Children and Adults</span></h2>
       <Row>
