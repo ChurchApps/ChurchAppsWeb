@@ -37,7 +37,6 @@ export const EnvironmentPage = () => (
           </Col>
         </Row>
 
-
       </Container>
     </div>
     <ApiProjects />
