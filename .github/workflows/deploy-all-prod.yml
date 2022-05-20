@@ -3,7 +3,7 @@ name: 'Deploy All Prod'
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '0 0 4 ? * MON *'
+    - cron:  '0 0 10 ? * MON *'
 
 jobs:
   notify:
