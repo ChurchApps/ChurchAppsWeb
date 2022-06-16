@@ -14,11 +14,11 @@ export function HomeRegister() {
 
   return (
     <div className="homeSection" id="registerSection">
-      <Container>
+      <Container fixed>
         <div id="register"></div>
         <Grid container spacing={3}>
-          <Grid md={4} xs={0}><img src="/images/home/register.png" alt="register" className="img-fluid" /></Grid>
-          <Grid md={6}>
+          <Grid md={4} sm={0}><img src="/images/home/register.png" alt="register" className="img-fluid" /></Grid>
+          <Grid md={6} style={{ marginLeft: 15 }}>
             <div className="title"><span>Sign up for ChurchApps</span></div>
             <h2>Create an Account</h2>
             <ErrorMessages errors={customErrors} />
