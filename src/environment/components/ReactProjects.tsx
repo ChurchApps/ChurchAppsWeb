@@ -1,12 +1,12 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Grid } from "@mui/material";
 
 export const ReactProjects: React.FC = () => (
   <div id="web" className="homeSection alt">
-    <Container>
+    <Container fixed>
       <h2>Web Project Setup</h2>
-      <Row>
-        <Col lg={9}>
+      <Grid container spacing={3}>
+        <Grid item md={9} xs={12}>
           <p>See <a href="https://youtu.be/5zsEJEp6yMw" target="_blank" rel="noreferrer">setup video</a>.</p>
           <p>
             All of the web projects are coded in React with Typescript and also have a similar setup process.  Each of the React
@@ -25,8 +25,8 @@ export const ReactProjects: React.FC = () => (
             <li>Install the dependencies with: <code>npm install</code></li>
             <li>run <code>npm start</code> to launch the project.</li>
           </ol>
-        </Col>
-        <Col lg={3}>
+        </Grid>
+        <Grid item md={3} xs={12}>
           <table className="table table-sm">
             <thead>
               <tr>
@@ -73,11 +73,11 @@ export const ReactProjects: React.FC = () => (
               </tr>
             </tbody>
           </table>
-        </Col>
-      </Row>
+        </Grid>
+      </Grid>
       <h3>Node.js Project Setup</h3>
-      <Row>
-        <Col lg={9}>
+      <Grid container spacing={3}>
+        <Grid item md={9} xs={12}>
           <p>
             There is a single project that uses Node.js instead of React.  It is <a href="https://lessons.church/">Lessons.church</a>.  The reason
             for the different framework is Lessons.church is more of a database-driven content-based site instead of a web application like the others.
@@ -92,8 +92,8 @@ export const ReactProjects: React.FC = () => (
             <li>Install the dependencies with: <code>npm install</code></li>
             <li>run <code>npm run dev</code> to launch the project.</li>
           </ol>
-        </Col>
-        <Col lg={3}>
+        </Grid>
+        <Grid item md={3} xs={12}>
           <table className="table table-sm">
             <thead>
               <tr>
@@ -108,8 +108,8 @@ export const ReactProjects: React.FC = () => (
               </tr>
             </tbody>
           </table>
-        </Col>
-      </Row>
+        </Grid>
+      </Grid>
     </Container>
   </div>
 );

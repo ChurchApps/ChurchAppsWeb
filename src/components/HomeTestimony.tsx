@@ -1,5 +1,5 @@
+import { Container } from "@mui/material";
 import React from "react";
-import { Container } from "react-bootstrap"
 
 export const HomeTestimony: React.FC = () => (
   <div className="homeSection alt" id="testimonySection">

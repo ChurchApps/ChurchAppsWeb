@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Container } from "react-bootstrap"
+import { Container, Grid } from "@mui/material";
 import { ErrorMessages, EnvironmentHelper } from "./";
 import { Register } from "../appBase/pageComponents/components/Register";
 import ReactGA from "react-ga";
@@ -16,15 +16,15 @@ export function HomeRegister() {
     <div className="homeSection" id="registerSection">
       <Container>
         <div id="register"></div>
-        <Row>
-          <Col lg={4} className="d-none d-lg-block"><img src="/images/home/register.png" alt="register" className="img-fluid" /></Col>
-          <Col lg={6}>
+        <Grid container spacing={3}>
+          <Grid md={4} xs={0}><img src="/images/home/register.png" alt="register" className="img-fluid" /></Grid>
+          <Grid md={6}>
             <div className="title"><span>Sign up for ChurchApps</span></div>
             <h2>Create an Account</h2>
             <ErrorMessages errors={customErrors} />
             <Register updateErrors={setCustomErrors} appName="ChurchApps" appUrl={EnvironmentHelper.AppUrl} userRegisteredCallback={trackUserRegister} />
-          </Col>
-        </Row>
+          </Grid>
+        </Grid>
       </Container>
     </div>
   );

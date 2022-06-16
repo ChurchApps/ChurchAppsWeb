@@ -1,9 +1,9 @@
 import React from "react";
-import { Container } from "react-bootstrap"
+import { Container } from "@mui/material";
 
 export const CreateAccount: React.FC = () => (
   <div id="account" className="homeSection">
-    <Container>
+    <Container fixed>
       <h2>Creating an Account</h2>
 
       <p>See <a href="https://youtu.be/LjeSzT7OXw4" target="_blank" rel="noreferrer">setup video</a>.</p>

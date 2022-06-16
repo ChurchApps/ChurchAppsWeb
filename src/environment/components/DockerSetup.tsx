@@ -1,9 +1,9 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Grid } from "@mui/material";
 
 export const DockerSetup: React.FC = () => (
   <div id="docker" className="homeSection">
-    <Container>
+    <Container fixed>
       <h2>Docker Setup</h2>
       <p>See <a href="https://youtu.be/M81I6gmKqdI" target="_blank" rel="noreferrer">setup video</a>.</p>
       <p>
@@ -13,8 +13,8 @@ export const DockerSetup: React.FC = () => (
         do all this automatically in the background.  It is possible to run all of the projects, including web, fully within Docker.  However, it consumes a lot
         of RAM.  It's recommended to just launch the Core Apis with it.  To do so:
       </p>
-      <Row>
-        <Col lg={9}>
+      <Grid container spacing={3}>
+        <Grid item md={9} xs={12}>
           <ol dir="auto">
             <li>Download and install <a href="https://www.docker.com/products/docker-desktop/" target="_blank" rel="noreferrer">Docker Desktop</a></li>
             <li>Clone the <a href="https://github.com/LiveChurchSolutions/Docker" target="_blank" rel="noreferrer">Docker</a> Repo.</li>
@@ -30,11 +30,11 @@ export const DockerSetup: React.FC = () => (
             <li>To view console output, in the original VSCode instance, right click on the app and select "View Logs"</li>
             <li>To connect the debugger, click on the Run and Debug icond on the left of VSCode running the image, and choose the "Docker: Attach to Node" option.</li>
           </ol>
-        </Col>
-        <Col lg={3}>
+        </Grid>
+        <Grid item md={3} xs={12}>
           <img src="../images/docker.png" className="img-fluid" alt="Docker"></img>
-        </Col>
-      </Row>
+        </Grid>
+      </Grid>
       <h3>Additional Commands</h3>
       <ul dir="auto">
         <li>Build and start the Docker container for the first time: <code>docker-compose up -d</code></li>

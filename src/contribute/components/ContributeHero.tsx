@@ -1,14 +1,15 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Grid } from "@mui/material";
 
 export const ContributeHero: React.FC = () => (
   <div id="hero">
     <Container>
-      <Row>
-        <Col lg={{ span: 8, offset: 2 }} className="text-center">
+      <Grid container spacing={3}>
+        <Grid item md={2} sm={0} />
+        <Grid item md={8} className="text-center">
           <h1>Contribute to<br /><span>Completely Free, Open-Source</span><br />Apps for Churches.</h1>
-        </Col>
-      </Row>
+        </Grid>
+      </Grid>
       <div style={{ marginTop: 20 }}>
         <p>At Live Church Solutions we are actively working to build a suite of free, open-source applications to meet the most common needs churches have.  Our ultimate goal is to offer a set of turn-key “church-in-a-box” solutions that meet all the technical needs of the average church.</p>
         <h4>Why Open -Source?</h4>

@@ -1,12 +1,12 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Grid } from "@mui/material";
 
 export const ReactNativeProjects: React.FC = () => (
   <div id="mobile" className="homeSection alt">
-    <Container>
+    <Container fixed>
       <h2>Mobile Project Setup</h2>
-      <Row>
-        <Col lg={9}>
+      <Grid container spacing={3}>
+        <Grid item md={9} xs={12}>
           <p>
             All of the mobile device projects are built in React Native.  This allows us to have a single codebase for iOS and Android.
             At this time B1 is available on both platforms while LessonsScreen and ChumsCheckin are available for Android only, but offered in both the Google Play and Amazon Fire stores.
@@ -22,8 +22,8 @@ export const ReactNativeProjects: React.FC = () => (
               Go to settings, Debug server host and enter YourIP:8081. Restart the app and it should connect to the react server and work properly.
             </li>
           </ol>
-        </Col>
-        <Col lg={3}>
+        </Grid>
+        <Grid item md={3} xs={12}>
           <table className="table table-sm">
             <thead>
               <tr>
@@ -46,8 +46,8 @@ export const ReactNativeProjects: React.FC = () => (
               </tr>
             </tbody>
           </table>
-        </Col>
-      </Row>
+        </Grid>
+      </Grid>
     </Container>
   </div>
 );

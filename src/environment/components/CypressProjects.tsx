@@ -1,12 +1,12 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Grid } from "@mui/material";
 
 export const CypressProjects: React.FC = () => (
   <div id="test" className="homeSection">
-    <Container>
+    <Container fixed>
       <h2>Cypress Test Setup</h2>
-      <Row>
-        <Col lg={9}>
+      <Grid container spacing={3}>
+        <Grid item md={9} xs={12}>
           <p>See <a href="https://youtu.be/yp53i_27mYA" target="_blank" rel="noreferrer">setup video</a>.</p>
           <p>
             We have automated test scripts for some of the projects to validate all code changes.  These run automatically on any commits to master.
@@ -26,8 +26,8 @@ export const CypressProjects: React.FC = () => (
             <li>Click on a script to run a block of tests</li>
             <li>While trying to debug one particular test, it's helpful to comment out the calls to the other tests in the block so just the one script being debugged runs.</li>
           </ol>
-        </Col>
-        <Col lg={3}>
+        </Grid>
+        <Grid item md={3} xs={12}>
           <table className="table table-sm">
             <thead>
               <tr>
@@ -43,8 +43,8 @@ export const CypressProjects: React.FC = () => (
               </tr>
             </tbody>
           </table>
-        </Col>
-      </Row>
+        </Grid>
+      </Grid>
     </Container>
   </div>
 );

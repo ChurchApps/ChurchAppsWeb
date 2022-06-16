@@ -1,11 +1,11 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Grid } from "@mui/material";
 
 export const ApiProjects: React.FC = () => (
   <div id="api" className="homeSection alt">
-    <Container>
-      <Row>
-        <Col lg={9}>
+    <Container fixed>
+      <Grid container spacing={3}>
+        <Grid item md={9} xs={12}>
           <h2>API Project Setup</h2>
           <p>Most projects depend on the CoreApis (Access, Attendance, Giving, Membership, and Reporting).  You can set each of these up manually but it's far more simple to follow the <a href="docker">Docker Setup Instructions</a> to get these running instead.</p>
           <p>If you choose to manaully set these up, the process is the same for all the APIs.</p>
@@ -21,8 +21,8 @@ export const ApiProjects: React.FC = () => (
             <li>Create the database tables with <code>npm run initdb</code></li>
             <li>Start the api with <code>npm run dev</code></li>
           </ol>
-        </Col>
-        <Col lg={3}>
+        </Grid>
+        <Grid item md={3} xs={12}>
           <table className="table table-sm">
             <thead>
               <tr>
@@ -73,8 +73,8 @@ export const ApiProjects: React.FC = () => (
               </tr>
             </tbody>
           </table>
-        </Col>
-      </Row>
+        </Grid>
+      </Grid>
     </Container>
   </div>
 );
