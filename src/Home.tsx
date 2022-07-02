@@ -6,6 +6,7 @@ import { AboutLessons } from "./components/AboutLessons"
 import { AboutChums } from "./components/AboutChums"
 import { AboutStreamingLive } from "./components/AboutStreamingLive"
 import { AboutB1 } from "./components/AboutB1";
+import { FloatingSupport } from "./appBase/components";
 
 export const Home = () => (
   <>
@@ -17,5 +18,6 @@ export const Home = () => (
     <AboutStreamingLive />
     <HomeRegister />
     <Footer />
+    <FloatingSupport appName="ChurchApps" />
   </>
 )
