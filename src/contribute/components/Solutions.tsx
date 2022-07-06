@@ -4,7 +4,7 @@ import { Container, Grid } from "@mui/material";
 export const Solutions: React.FC = () => (
   <div id="membersSection" className="homeSection alt">
     <Container fixed>
-      <h2>Our Solutions</h2>
+      <h2 style={{marginTop: 0}}>Our Solutions</h2>
       <Grid container spacing={3}>
         <Grid item md={6} xs={12}>
           <ul className="checkList">
@@ -15,7 +15,7 @@ export const Solutions: React.FC = () => (
           </ul>
         </Grid>
         <Grid item md={6} xs={12}>
-          <img src="/images/apps.png" className="img-fluid" alt="apps" />
+          <img src="/images/apps.png" alt="apps" />
         </Grid>
       </Grid>
     </Container>

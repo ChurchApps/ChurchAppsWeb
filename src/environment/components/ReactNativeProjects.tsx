@@ -1,10 +1,10 @@
 import React from "react";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 
 export const ReactNativeProjects: React.FC = () => (
   <div id="mobile" className="homeSection alt">
     <Container fixed>
-      <h2>Mobile Project Setup</h2>
+      <Typography sx={{lineHeight: 1.2, marginTop: 0}} component="h2">Mobile Project Setup</Typography>
       <Grid container spacing={3}>
         <Grid item md={9} xs={12}>
           <p>
@@ -24,7 +24,7 @@ export const ReactNativeProjects: React.FC = () => (
           </ol>
         </Grid>
         <Grid item md={3} xs={12}>
-          <table className="table table-sm">
+          <table className="table">
             <thead>
               <tr>
                 <th>Project</th>

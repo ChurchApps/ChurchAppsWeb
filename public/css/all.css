@@ -9,6 +9,11 @@
 
 a {
   color: #24b8ff;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
 }
 
 h2 span {
@@ -23,9 +28,19 @@ h2 span {
   color: #00ad25;
 }
 
+.logo {
+  display: flex;
+  margin-right: 20px;
+}
+
+.logo img {
+  max-width: 196px;
+  width: 100%;
+}
+
 #navbar {
   background-color: #FFF !important;
-  height: 55px;
+  padding: 11px 0;
   margin-bottom: 20px;
   box-shadow: 0px 3px 3px 0px #999;
 }
@@ -227,7 +242,7 @@ h2 span {
 
 
 .contributeTab {
-  padding: 10px;
+  padding: 15px;
   border-left: 1px solid #DDD;
   background-color: #FFF;
 }
@@ -259,6 +274,84 @@ p.lead {
 .btn-info {
   background-color: #03a9f4;
   border-color: #03a9f4;
+}
+
+.nav-tabs .nav-link {
+  display: flex;
+  border: 1px solid transparent;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: #495057;
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.nav-tabs .nav-item {
+  margin-bottom: -1px;
+}
+
+.nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0,0,0,.05);
+}
+
+.table thead th {
+  vertical-align: bottom;
+  text-align: left;
+  padding: 5px;
+}
+
+.table td {
+  padding: 5px;
+  border-top: 1px solid #dee2e6;
+}
+
+.terms h1,
+.terms h2,
+.terms h3 {
+  font-weight: 500;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.terms h1 {
+  font-size: 40px;
+}
+
+.terms h2 {
+  font-size: 32px;
+}
+
+.terms h2 {
+  font-size: 28px;
+}
+
+.terms p {
+  margin: 0 0 16px 0;
+}
+
+code {
+  font-size: 87.5%;
+  color: #e83e8c;
+  word-break: break-word;
 }
 
 

@@ -1,10 +1,10 @@
 import React from "react";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Button } from "@mui/material";
 
 export const GetStarted: React.FC = () => (
   <div id="membersSection" className="homeSection alt">
     <Container fixed>
-      <h2>Ready to Get Started?</h2>
+      <h2 style={{marginTop: 0, lineHeight: 1.2}}>Ready to Get Started?</h2>
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <p>We've tried to make getting started as easy as possible by providing a detailed guide and videos showing exactly how to set up each product.</p>
@@ -14,8 +14,12 @@ export const GetStarted: React.FC = () => (
         </Grid>
       </Grid>
       <Grid container spacing={3}>
-        <Grid item xs={6}><a href="/contribute/environment" className="btn btn-primary btn-block btn-lg">Start Coding</a></Grid>
-        <Grid item xs={6}><a href="https://join.slack.com/t/livechurchsolutions/shared_invite/zt-i88etpo5-ZZhYsQwQLVclW12DKtVflg" className="btn btn-success btn-block btn-lg">Let's Talk</a></Grid>
+        <Grid item xs={6}>
+          <Button href="/contribute/environment" variant="contained" size="medium" fullWidth disableElevation sx={{"&:focus": { outline: "none", color: "white"}, textTransform: "capitalize", fontSize: "20px"}}>Start Coding</Button>
+        </Grid>
+        <Grid item xs={6}>
+          <Button href="https://join.slack.com/t/livechurchsolutions/shared_invite/zt-i88etpo5-ZZhYsQwQLVclW12DKtVflg" variant="contained" size="medium" color="success" fullWidth disableElevation sx={{"&:focus": { outline: "none", color: "white"}, textTransform: "capitalize", fontSize: "20px"}}>Let's Talk</Button>
+        </Grid>
       </Grid>
     </Container>
   </div>

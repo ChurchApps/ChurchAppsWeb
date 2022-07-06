@@ -1,9 +1,10 @@
 import React from "react";
+import { Typography } from "@mui/material";
 
 export const TabNonTech: React.FC = () => (
   <div className="contributeTab">
-    <h3>Non-Technical</h3>
-    <p>Don't have a background in IT?  We could still use your help in the following areas:</p>
+    <Typography sx={{fontSize: "28px", lineHeight: 1.2, fontWeight: 500, margin: "0 0 8px 0"}} component="h3">Non-Technical</Typography>
+    <p style={{margin: "0 0 16px 0"}}>Don't have a background in IT?  We could still use your help in the following areas:</p>
     <ul className="checkList">
       <li><b>Documentation</b> - We have a shortage of both technical and non-technical documentation at the moment.  Help built out support wikis and provide in-application support snippets.</li>
       <li><b>Support</b> - We try to make setup as easy as possible on churches, but some still need help.  Providing one-on-one help for those who need it would greatly help free up developer time to work on features.</li>

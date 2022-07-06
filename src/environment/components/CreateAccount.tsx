@@ -1,10 +1,10 @@
 import React from "react";
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 
 export const CreateAccount: React.FC = () => (
   <div id="account" className="homeSection">
     <Container fixed>
-      <h2>Creating an Account</h2>
+      <Typography sx={{lineHeight: 1.2, marginTop: 0}} component="h2">Creating an Account</Typography>
 
       <p>See <a href="https://youtu.be/LjeSzT7OXw4" target="_blank" rel="noreferrer">setup video</a>.</p>
       <p>

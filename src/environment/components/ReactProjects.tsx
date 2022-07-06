@@ -1,10 +1,10 @@
 import React from "react";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 
 export const ReactProjects: React.FC = () => (
   <div id="web" className="homeSection alt">
     <Container fixed>
-      <h2>Web Project Setup</h2>
+      <Typography sx={{lineHeight: 1.2, marginTop: 0}} component="h2">Web Project Setup</Typography>
       <Grid container spacing={3}>
         <Grid item md={9} xs={12}>
           <p>See <a href="https://youtu.be/5zsEJEp6yMw" target="_blank" rel="noreferrer">setup video</a>.</p>
@@ -27,7 +27,7 @@ export const ReactProjects: React.FC = () => (
           </ol>
         </Grid>
         <Grid item md={3} xs={12}>
-          <table className="table table-sm">
+          <table className="table">
             <thead>
               <tr>
                 <th>Website</th>
@@ -75,7 +75,7 @@ export const ReactProjects: React.FC = () => (
           </table>
         </Grid>
       </Grid>
-      <h3>Node.js Project Setup</h3>
+      <Typography sx={{fontSize: "28px", fontWeight: 500, lineHeight: 1.2, margin: "0 0 8px 0"}} component="h3">Node.js Project Setup</Typography>
       <Grid container spacing={3}>
         <Grid item md={9} xs={12}>
           <p>
@@ -94,7 +94,7 @@ export const ReactProjects: React.FC = () => (
           </ol>
         </Grid>
         <Grid item md={3} xs={12}>
-          <table className="table table-sm">
+          <table className="table">
             <thead>
               <tr>
                 <th>Website</th>

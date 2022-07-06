@@ -1,18 +1,18 @@
 import React from "react"
-import { Container, Grid } from "@mui/material";
+import { Container, AppBar, Stack, Box, Button } from "@mui/material";
 import { EnvironmentHelper } from "../helpers";
 
 export const Header: React.FC = () => (<>
-  <div id="navbar" className="fixed-top">
+  <AppBar id="navbar" position="fixed">
     <Container fixed>
-      <Grid container spacing={3}>
-        <Grid item md={9} sm={6}><a className="navbar-brand" href="/"><img src="/images/logo.png" alt="logo" /></a></Grid>
-        <Grid item md={3} sm={6} className="text-right" id="navRight">
+      <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <a href="/" className="logo"><img src="/images/logo.png" alt="logo" /></a>
+        <Box sx={{display: "flex", alignItems: "center", whiteSpace: "nowrap"}}>
           <a href={EnvironmentHelper.AppUrl} className="link">Login</a>
-          <a href="/#register" className="btn btn-success btn-sm">Get Started</a>
-        </Grid>
-      </Grid>
+          <Button href="/#register" variant="contained" size="small" disableElevation color="success" sx={{ "&:focus": { outline: "none", color: "white" }, marginLeft: "15px" }}>Get Started</Button>
+        </Box>
+      </Stack>
     </Container>
-  </div>
+  </AppBar>
   <div id="navSpacer"></div>
 </>)

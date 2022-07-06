@@ -1,10 +1,10 @@
 import React from "react";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 
 export const DockerSetup: React.FC = () => (
   <div id="docker" className="homeSection">
     <Container fixed>
-      <h2>Docker Setup</h2>
+      <Typography sx={{lineHeight: 1.2, marginTop: 0}} component="h2">Docker Setup</Typography>
       <p>See <a href="https://youtu.be/M81I6gmKqdI" target="_blank" rel="noreferrer">setup video</a>.</p>
       <p>
         Docker isn't required for any of the projects, but it does make setting up the Core APIs (Access, Attendance, Giving, Membership, and Reporting)
@@ -21,7 +21,7 @@ export const DockerSetup: React.FC = () => (
             <li>From a command prompt browse to the <code>/Containers/Dev/CoreApis</code> folder.</li>
             <li>Run <code>docker-compose up -d</code> to create the environment. This will take about 5-10 minutes the first time..</li>
           </ol>
-          <h3>Connecting VSCode</h3>
+          <Typography sx={{fontSize: "28px", fontWeight: 500, lineHeight: 1.2, margin: "0 0 8px 0"}} component="h3">Connecting VSCode</Typography>
           <ol dir="auto">
             <li>Install the "Docker" and "Remote Containers" extensions for VSCode.</li>
             <li>You will have a new Docker tab on the left of VSCode, expand it.</li>
@@ -35,7 +35,7 @@ export const DockerSetup: React.FC = () => (
           <img src="../images/docker.png" className="img-fluid" alt="Docker"></img>
         </Grid>
       </Grid>
-      <h3>Additional Commands</h3>
+      <Typography sx={{fontSize: "28px", fontWeight: 500, lineHeight: 1.2, margin: "15px 0 8px 0"}} component="h3">Additional Commands</Typography>
       <ul dir="auto">
         <li>Build and start the Docker container for the first time: <code>docker-compose up -d</code></li>
         <li>Stop the Docker container: <code>docker-compose stop</code></li>

@@ -3,9 +3,9 @@ import React from "react";
 
 export const HomeTestimony: React.FC = () => (
   <div className="homeSection alt" id="testimonySection">
-    <Container className="text-center">
+    <Container sx={{textAlign: "center"}}>
       <div className="title"><span>See Why</span></div>
-      <h2>Churches Love CHUMS</h2>
+      <h2 style={{lineHeight: 1.2, marginTop: 0}}>Churches Love CHUMS</h2>
     </Container>
   </div>
 )

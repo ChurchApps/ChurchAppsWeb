@@ -1,12 +1,12 @@
 import React from "react";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 
 export const ApiProjects: React.FC = () => (
   <div id="api" className="homeSection alt">
     <Container fixed>
       <Grid container spacing={3}>
         <Grid item md={9} xs={12}>
-          <h2>API Project Setup</h2>
+          <Typography sx={{lineHeight: 1.2, marginTop: 0}} component="h2">API Project Setup</Typography>
           <p>Most projects depend on the CoreApis (Access, Attendance, Giving, Membership, and Reporting).  You can set each of these up manually but it's far more simple to follow the <a href="docker">Docker Setup Instructions</a> to get these running instead.</p>
           <p>If you choose to manaully set these up, the process is the same for all the APIs.</p>
           <ol dir="auto">
@@ -23,7 +23,7 @@ export const ApiProjects: React.FC = () => (
           </ol>
         </Grid>
         <Grid item md={3} xs={12}>
-          <table className="table table-sm">
+          <table className="table">
             <thead>
               <tr>
                 <th>API</th>

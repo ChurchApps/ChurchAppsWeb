@@ -1,5 +1,6 @@
 import React from "react";
 import { GitHubIssue } from "../../helpers";
+import { Typography } from "@mui/material";
 
 interface Props { repoNames: string[] }
 
@@ -59,8 +60,8 @@ export const GitHubIssues: React.FC<Props> = (props) => {
   else {
     return (
       <>
-        <h4>Open Issues</h4>
-        <table className="table table-sm table-striped">
+        <Typography sx={{fontSize: "28px", fontWeight: 500, margin: 0}} component="h4">Open Issues</Typography>
+        <table className="table table-striped">
           <thead>
             <tr>
               <th>Repository</th>

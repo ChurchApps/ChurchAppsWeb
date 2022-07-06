@@ -5,23 +5,24 @@ import { TabBrochure } from "./TabBrochure";
 import { TabMobile } from "./TabMobile";
 import { TabDevOps } from "./TabDevOps";
 import { TabNonTech } from "./TabNonTech";
+import { Icon } from "@mui/material";
 
 export const DeveloperTabs: React.FC = () => {
   const [selectedTab, setSelectedTab] = React.useState("");
 
   const getTab = (keyName: string, icon: string, text: string) => {
     let className = (keyName === selectedTab) ? "nav-link active" : "nav-link";
-    return <li className="nav-item" key={keyName}><a href="about:blank" onClick={e => { e.preventDefault(); setSelectedTab(keyName) }} className={className}><i className={icon}></i> {text}</a></li>
+    return <li className="nav-item" key={keyName}><a href="about:blank" onClick={e => { e.preventDefault(); setSelectedTab(keyName) }} className={className}><Icon sx={{marginRight: "4px"}}>{icon}</Icon> {text}</a></li>
   }
   let tabs = [];
   let defaultTab = "node"
   let currentTab = null;
-  tabs.push(getTab("node", "fab fa-node-js", "Node"));
-  tabs.push(getTab("react", "fab fa-react", "React Apps"));
-  tabs.push(getTab("brochure", "fab fa-html5", "Brochure Sites"));
-  tabs.push(getTab("mobile", "fas fa-mobile-alt", "Mobile"));
-  tabs.push(getTab("devops", "fab fa-docker", "DevOps"));
-  tabs.push(getTab("nontech", "fab fa-docker", "Non-Technical"));
+  tabs.push(getTab("node", "javascript", "Node"));
+  tabs.push(getTab("react", "apps", "React Apps"));
+  tabs.push(getTab("brochure", "html", "Brochure Sites"));
+  tabs.push(getTab("mobile", "mobile_friendly", "Mobile"));
+  tabs.push(getTab("devops", "integration_instructions", "DevOps"));
+  tabs.push(getTab("nontech", "integration_instructions", "Non-Technical"));
 
   if (selectedTab === "" && defaultTab !== "") setSelectedTab(defaultTab);
 
