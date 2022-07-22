@@ -1,11 +1,13 @@
 import React from "react";
 import { GitHubIssue } from "../../helpers";
 import { Typography } from "@mui/material";
+import useMountedState from "../../appBase/hooks/useMountedState";
 
 interface Props { repoNames: string[] }
 
 export const GitHubIssues: React.FC<Props> = (props) => {
   const [issues, setIssues] = React.useState<GitHubIssue[]>([]);
+  const isMounted = useMountedState();
 
   const getAnonymous = async (url: string) => {
     try {
@@ -38,14 +40,16 @@ export const GitHubIssues: React.FC<Props> = (props) => {
           //rate limit
         }
       });
-      setIssues(result);
+      if(isMounted()) {
+        setIssues(result);
+      }
     });
-  }, [props.repoNames]);
+  }, [props.repoNames, isMounted]);
 
   const getItems = () => {
     const result: JSX.Element[] = [];
-    issues.forEach(issue => {
-      result.push(<tr>
+    issues.forEach((issue, i) => {
+      result.push(<tr key={i}>
         <td>{issue.repoName}</td>
         <td><a href={issue.url}>{issue.title}</a></td>
       </tr>);
