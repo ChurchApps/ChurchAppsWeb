@@ -4,7 +4,7 @@ import { Container, Typography } from "@mui/material";
 export const CreateAccount: React.FC = () => (
   <div id="account" className="homeSection">
     <Container fixed>
-      <Typography sx={{lineHeight: 1.2, marginTop: 0}} component="h2">Creating an Account</Typography>
+      <Typography sx={{ lineHeight: 1.2, marginTop: 0 }} component="h2">Creating an Account</Typography>
 
       <p>See <a href="https://youtu.be/LjeSzT7OXw4" target="_blank" rel="noreferrer">setup video</a>.</p>
       <p>
@@ -13,7 +13,7 @@ export const CreateAccount: React.FC = () => (
       </p>
       <ol dir="auto">
         <li>Get the api and web project(s) running.</li>
-        <li>Open the Docker drawer in VS Code and right click on AccessApi.</li>
+        <li>Open the Docker drawer in VS Code and right click on MembershipApi.</li>
         <li>Choose 'View Logs'.</li>
         <li>Register an account in the web app you're working with.</li>
         <li>The welcome email with your temporary password will be displayed in the log.</li>

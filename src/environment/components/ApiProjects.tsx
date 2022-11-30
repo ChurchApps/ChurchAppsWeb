@@ -6,7 +6,7 @@ export const ApiProjects: React.FC = () => (
     <Container fixed>
       <Grid container spacing={3}>
         <Grid item md={9} xs={12}>
-          <Typography sx={{lineHeight: 1.2, marginTop: 0}} component="h2">API Project Setup</Typography>
+          <Typography sx={{ lineHeight: 1.2, marginTop: 0 }} component="h2">API Project Setup</Typography>
           <p>Most projects depend on the CoreApis (Access, Attendance, Giving, Membership, and Reporting).  You can set each of these up manually but it's far more simple to follow the <a href="docker">Docker Setup Instructions</a> to get these running instead.</p>
           <p>If you choose to manaully set these up, the process is the same for all the APIs.</p>
           <ol dir="auto">
@@ -31,10 +31,6 @@ export const ApiProjects: React.FC = () => (
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><a href="https://github.com/LiveChurchSolutions/AccessApi/" target="_blank" rel="noreferrer">AccessApi</a></td>
-                <td>8082</td>
-              </tr>
               <tr>
                 <td><a href="https://github.com/LiveChurchSolutions/MembershpApi/" target="_blank" rel="noreferrer">MembershipApi</a></td>
                 <td>8083</td>
