@@ -32,7 +32,7 @@ export class EnvironmentHelper {
   //NOTE: None of these values are secret.
   static initProd = () => {
     EnvironmentHelper.MembershipApi = "https://membershipapi.churchapps.org";
-    EnvironmentHelper.AppUrl = "https://accounts.churchapps.org"
+    EnvironmentHelper.AppUrl = "https://app.chums.org"
     EnvironmentHelper.GoogleAnalyticsTag = "UA-164774603-6";
   }
 
