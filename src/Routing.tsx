@@ -7,6 +7,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import ReactGA from "react-ga";
 import { EnvironmentHelper } from "./helpers";
 import { EnvironmentPage } from "./environment/EnvironmentPage";
+import { ChumsHome } from "./chums/ChumsHome";
 
 export const Routing: React.FC = () => {
   const location = useLocation();
@@ -20,7 +21,7 @@ export const Routing: React.FC = () => {
     let result = <Home />;
     const host = window.location.hostname.toLocaleLowerCase();
     console.log("Host is", host);
-    if (host.indexOf("chums.org") > -1) result = <ContributePage />
+    if (host.indexOf("chums.org") > -1) result = <ChumsHome />
     return result;
   }
 
@@ -30,6 +31,7 @@ export const Routing: React.FC = () => {
       <Route path="/terms" element={<Terms />} />
       <Route path="/contribute/environment" element={<EnvironmentPage />} />
       <Route path="/contribute" element={<ContributePage />} />
+      <Route path="/chums" element={<ChumsHome />} />
       <Route path="/" element={determineHome()} />
     </Routes>
   );
