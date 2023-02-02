@@ -10,6 +10,7 @@ import { EnvironmentPage } from "./environment/EnvironmentPage";
 import { ChumsHome } from "./chums/ChumsHome";
 import { B1Home } from "./b1/B1Home";
 import { Login } from "./Login";
+import { StreamingLiveHome } from "./streamingLive/StreamingLiveHome";
 
 export const Routing: React.FC = () => {
   const location = useLocation();
@@ -22,9 +23,9 @@ export const Routing: React.FC = () => {
   const determineHome = () => {
     let result = <Home />;
     const host = window.location.hostname.toLocaleLowerCase();
-    console.log("Host is", host);
     if (host.indexOf("chums.org") > -1) result = <ChumsHome />
     else if (host.indexOf("b1.church") > -1) result = <B1Home />
+    else if (host.indexOf("streaminglive.church") > -1) result = <StreamingLiveHome />
     return result;
   }
 
@@ -37,6 +38,7 @@ export const Routing: React.FC = () => {
       <Route path="/contribute" element={<ContributePage />} />
       <Route path="/chums" element={<ChumsHome />} />
       <Route path="/b1" element={<B1Home />} />
+      <Route path="/streamingLive" element={<StreamingLiveHome />} />
       <Route path="/" element={determineHome()} />
     </Routes>
   );

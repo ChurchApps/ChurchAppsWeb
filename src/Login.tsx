@@ -16,14 +16,22 @@ export const Login: React.FC = (props: any) => {
   if (!jwt) jwt = "";
   if (!auth) auth = "";
 
+  const getAppName = () => {
+    let result = "B1";
+    if (window.location.host.indexOf("streaminglive.church") >= 1) result = "streamingLive";
+    return result;
+  }
+
   const handleLogin = () => {
-    const url = EnvironmentHelper.SubUrl.replace("{key}", UserHelper.currentUserChurch.church.subDomain) + "/login?jwt=" + UserHelper.currentUserChurch.jwt;
+    let url = EnvironmentHelper.B1SubUrl.replace("{key}", UserHelper.currentUserChurch.church.subDomain) + "/login?jwt=" + UserHelper.currentUserChurch.jwt;
+    const appName = getAppName();
+    if (appName === "streamingLive") url = EnvironmentHelper.SLSubUrl.replace("{key}", UserHelper.currentUserChurch.church.subDomain) + "/login?jwt=" + UserHelper.currentUserChurch.jwt;
     window.location.href = url;
   }
 
   return (
     <Box sx={{ backgroundColor: "#EEEEEE", minHeight: "100vh", padding: "0 15px" }}>
-      <LoginPage auth={auth} context={context} jwt={jwt} appName="B1" loginSuccessOverride={handleLogin} />
+      <LoginPage auth={auth} context={context} jwt={jwt} appName={getAppName()} loginSuccessOverride={handleLogin} />
     </Box>
   );
 
