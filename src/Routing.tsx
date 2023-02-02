@@ -8,6 +8,8 @@ import ReactGA from "react-ga";
 import { EnvironmentHelper } from "./helpers";
 import { EnvironmentPage } from "./environment/EnvironmentPage";
 import { ChumsHome } from "./chums/ChumsHome";
+import { B1Home } from "./b1/B1Home";
+import { Login } from "./Login";
 
 export const Routing: React.FC = () => {
   const location = useLocation();
@@ -22,16 +24,19 @@ export const Routing: React.FC = () => {
     const host = window.location.hostname.toLocaleLowerCase();
     console.log("Host is", host);
     if (host.indexOf("chums.org") > -1) result = <ChumsHome />
+    else if (host.indexOf("b1.church") > -1) result = <B1Home />
     return result;
   }
 
   return (
     <Routes>
+      <Route path="/login" element={<Login />} />
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/terms" element={<Terms />} />
       <Route path="/contribute/environment" element={<EnvironmentPage />} />
       <Route path="/contribute" element={<ContributePage />} />
       <Route path="/chums" element={<ChumsHome />} />
+      <Route path="/b1" element={<B1Home />} />
       <Route path="/" element={determineHome()} />
     </Routes>
   );
