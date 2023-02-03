@@ -1,4 +1,4 @@
-#hero {
+#streamingLive #hero {
   background-color: #000;
   background-image: url('../../public/images/streamingLive/home-hero.png');
   background-size: cover;
@@ -10,40 +10,40 @@
   background-position-y: center;
 }
 
-#hero h1 {
+#streamingLive #hero h1 {
   margin-top: 100px;
   font-size: 60px;
   color: #24b9ff;
 }
 
-#hero p {
+#streamingLive #hero p {
   font-size: 40px;
   margin-bottom: 50px;
   margin-top: 0;
 }
 
-#hero .btn {
+#streamingLive #hero .btn {
   text-shadow: none;
 }
 
-#benefits {
+#streamingLive #benefits {
   padding-top: 70px;
   padding-bottom: 70px;
 }
 
-#features {
+#streamingLive #features {
   padding-top: 70px;
   padding-bottom: 70px;
   background-color: #24b9ff;
   color: #FFF;
 }
 
-#features a,
-#features a:hover {
+#streamingLive #features a,
+#streamingLive #features a:hover {
   color: #FFF;
   text-decoration: underline;
 }
 
-#features li {
+#streamingLive #features li {
   margin-top: 20px;
 }

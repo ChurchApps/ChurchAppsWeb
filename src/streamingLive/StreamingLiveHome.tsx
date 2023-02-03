@@ -6,11 +6,11 @@ import "./StreamingLive.css"
 export const StreamingLiveHome = () => {
   document.title = "Streaming Live - A free platform for church service streaming."
   return (
-    <>
+    <div id="streamingLive">
       <HomeHero />
       <HomeBenefits />
       <HomeFeatures />
       <HomeRegister />
       <FloatingSupport appName="StreamingLive" />
-    </>)
+    </div>);
 }

@@ -1,10 +1,10 @@
-#hero .title {
+#b1 #hero .title {
   margin-top: 30px;
   font-size: 18px;
   margin-bottom: 0px;
 }
 
-.title {
+#b1 .title {
   font-size: 14px;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -12,43 +12,43 @@
   font-weight: bold;
 }
 
-.homeSection .title {
+#b1 .homeSection .title {
   color: #1b75bc;
 }
 
-.homeSection .title span {
+#b1 .homeSection .title span {
   color: #1b75bc;
 }
 
-.homeSection.alt h2 span {
+#b1 .homeSection.alt h2 span {
   color: #299ffc;
 }
 
-.homeSection.alt .title {
+#b1 .homeSection.alt .title {
   color: #299ffc;
 }
 
-#register {
+#b1 #register {
   padding-top: 40px;
   padding-bottom: 80px;
 }
 
-h2 span {
+#b1 h2 span {
   color: #1b75bc;
 }
 
-#registerBox {
+#b1 #registerBox {
   background-color: #EEE;
   border: 1px solid #CCC;
   border-radius: 5px;
   padding: 20px;
 }
 
-#registerBox .MuiTextField-root {
+#b1 #registerBox .MuiTextField-root {
   background-color: #FFF;
 }
 
-a {
+#b1 a {
   color: #1b75bc;
   text-decoration: none;
 }
