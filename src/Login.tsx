@@ -18,16 +18,21 @@ export const Login: React.FC = (props: any) => {
 
   const getAppName = () => {
     let result = "B1";
-    if (window.location.host.indexOf("streaminglive.church") >= 1) result = "streamingLive";
+    if (window.location.host.indexOf("streaminglive.church") >= -1) result = "streamingLive";
     return result;
   }
 
-  const handleLogin = () => {
+  const getUrl = () => {
     let url = EnvironmentHelper.B1SubUrl.replace("{key}", UserHelper.currentUserChurch.church.subDomain) + "/login?jwt=" + UserHelper.currentUserChurch.jwt;
     const appName = getAppName();
     if (appName === "streamingLive") url = EnvironmentHelper.SLSubUrl.replace("{key}", UserHelper.currentUserChurch.church.subDomain) + "/login?jwt=" + UserHelper.currentUserChurch.jwt;
-    window.location.href = url;
+    return url;
   }
+
+  const handleLogin = () => {
+    window.location.href = getUrl();
+  }
+
 
   return (
     <Box sx={{ backgroundColor: "#EEEEEE", minHeight: "100vh", padding: "0 15px" }}>
