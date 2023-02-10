@@ -14,7 +14,7 @@ export const HomeGiving: React.FC = () => (
           <ul>
             <li>CHUMS makes it easy to track your giving.  Our batch input makes data entry quick and efficient.</li>
             <li>You can export giving data to CSV files to easily prepare giving statements.</li>
-            <li>Create an unlimited number of funds to track gifts to special causes and view breakdwons of giving over time, either by fund or see the big picture.</li>
+            <li>Create an unlimited number of funds to track gifts to special causes and view breakdowns of giving over time, either by fund or see the big picture.</li>
           </ul>
         </Grid>
       </Grid>
