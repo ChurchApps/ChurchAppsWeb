@@ -57,8 +57,7 @@
     "predeploy-prod": "export REACT_APP_STAGE=prod&& npm run build",
     "exec-deploy-prod": "aws s3 sync build/ s3://churchapps-web",
     "invalidate-churchapps": "aws cloudfront create-invalidation --distribution-id E2PKBHDPXT4IBE --paths \"/*\"",
-    "invalidate-chums": "aws cloudfront create-invalidation --distribution-id E2S67R1UFNENG9 --paths \"/*\"",
-    "deploy-prod": "npm run predeploy-prod && npm run exec-deploy-prod && npm run invalidate-churchapps && npm run invalidate-chums",
+    "deploy-prod": "npm run predeploy-prod && npm run exec-deploy-prod && npm run invalidate-churchapps",
     "prepare": "husky install"
   },
   "lint-staged": {

@@ -18,7 +18,7 @@ export const Login: React.FC = (props: any) => {
 
   const getAppName = () => {
     let result = "B1";
-    if (window.location.host.indexOf("streaminglive.church") >= -1) result = "streamingLive";
+    if (window.location.host.indexOf("streaminglive.church") > -1) result = "streamingLive";
     return result;
   }
 
@@ -32,7 +32,6 @@ export const Login: React.FC = (props: any) => {
   const handleLogin = () => {
     window.location.href = getUrl();
   }
-
 
   return (
     <Box sx={{ backgroundColor: "#EEEEEE", minHeight: "100vh", padding: "0 15px" }}>
