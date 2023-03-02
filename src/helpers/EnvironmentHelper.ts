@@ -1,7 +1,6 @@
 import { ApiHelper } from "../appBase/helpers";
 
 export class EnvironmentHelper {
-  private static StreamingLiveApi = "";
   private static MembershipApi = "";
   static AppUrl = "";
   static GoogleAnalyticsTag = "";
@@ -15,13 +14,11 @@ export class EnvironmentHelper {
       default: EnvironmentHelper.initDev(); break;
     }
     ApiHelper.apiConfigs = [
-      { keyName: "StreamingLiveApi", url: EnvironmentHelper.StreamingLiveApi, jwt: "", permisssions: [] },
       { keyName: "MembershipApi", url: EnvironmentHelper.MembershipApi, jwt: "", permisssions: [] }
     ];
   }
 
   static initDev = () => {
-    EnvironmentHelper.StreamingLiveApi = process.env.REACT_APP_STREAMINGLIVE_API || "";
     EnvironmentHelper.B1SubUrl = process.env.REACT_APP_B1_SUB_URL || "";
     EnvironmentHelper.SLSubUrl = process.env.REACT_APP_SL_SUB_URL || "";
     EnvironmentHelper.MembershipApi = process.env.REACT_APP_MEMBERSHIP_API || "";
@@ -31,7 +28,6 @@ export class EnvironmentHelper {
 
   //NOTE: None of these values are secret.
   static initStaging = () => {
-    EnvironmentHelper.StreamingLiveApi = "https://api.staging.streaminglive.church";
     EnvironmentHelper.MembershipApi = "https://membershipapi.staging.churchapps.org";
     EnvironmentHelper.B1SubUrl = "https://{key}.staging.b1.church";
     EnvironmentHelper.SLSubUrl = "https://{key}.staging.streaminglive.church";
@@ -41,7 +37,6 @@ export class EnvironmentHelper {
 
   //NOTE: None of these values are secret.
   static initProd = () => {
-    EnvironmentHelper.StreamingLiveApi = "https://api.streaminglive.church";
     EnvironmentHelper.MembershipApi = "https://membershipapi.churchapps.org";
     EnvironmentHelper.B1SubUrl = "https://{key}.b1.church";
     EnvironmentHelper.SLSubUrl = "https://{key}.streaminglive.church";
@@ -59,4 +54,3 @@ export class EnvironmentHelper {
   }
 
 }
-
