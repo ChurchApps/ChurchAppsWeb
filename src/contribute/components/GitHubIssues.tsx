@@ -3,7 +3,7 @@ import { GitHubIssue } from "../../helpers";
 import { Typography } from "@mui/material";
 import useMountedState from "../../appBase/hooks/useMountedState";
 
-interface Props { repoNames: string[] }
+interface Props { labels: string[] }
 
 export const GitHubIssues: React.FC<Props> = (props) => {
   const [issues, setIssues] = React.useState<GitHubIssue[]>([]);
@@ -20,8 +20,8 @@ export const GitHubIssues: React.FC<Props> = (props) => {
 
   const loadData = React.useCallback(() => {
     const promises: Promise<any>[] = [];
-    props.repoNames.forEach(repo => {
-      const url = "https://api.github.com/repos/LiveChurchSolutions/" + repo + "/issues?state=open";
+    props.labels.forEach(label => {
+      const url = "https://api.github.com/repos/LiveChurchSolutions/ChurchAppsSupport/issues?state=open&label=" + label;
       promises.push(getAnonymous(url))
     });
     Promise.all(promises).then((responses: any[]) => {
@@ -44,7 +44,7 @@ export const GitHubIssues: React.FC<Props> = (props) => {
         setIssues(result);
       }
     });
-  }, [props.repoNames, isMounted]);
+  }, [props.labels, isMounted]);
 
   const getItems = () => {
     const result: JSX.Element[] = [];
@@ -58,7 +58,7 @@ export const GitHubIssues: React.FC<Props> = (props) => {
     return <>{result}</>
   }
 
-  React.useEffect(loadData, [props.repoNames, loadData]);
+  React.useEffect(loadData, [props.labels, loadData]);
 
   if (issues.length === 0) return <></>;
   else {

@@ -13,6 +13,6 @@ export const TabReact: React.FC = () => (
       <li><a href="https://github.com/LiveChurchSolutions/B1App" target="_blank" rel="noopener noreferrer">B1App</a> - A web version of the B1 Mobile app, that includes the admin features.</li>
       <li><a href="https://github.com/LiveChurchSolutions/LessonsApp" target="_blank" rel="noopener noreferrer">LessonsApp</a> - High quality, free curriculum for children, youth, and adults.</li>
     </ul>
-    <GitHubIssues repoNames={["AccountsApp", "ChumsApp", "ChumsTransfer", "StreamingLiveApp", "B1App", "LessonsApp"]} />
+    <GitHubIssues labels={["react", "nextjs"]} />
   </div>
 )

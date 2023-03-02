@@ -55,18 +55,6 @@ export const ApiProjects: React.FC = () => (
                 <td><a href="https://github.com/LiveChurchSolutions/LessonsApi/" target="_blank" rel="noreferrer">LessonsApi</a></td>
                 <td>8090</td>
               </tr>
-              <tr>
-                <td><a href="https://github.com/LiveChurchSolutions/MessagingApi/" target="_blank" rel="noreferrer">StreamingLiveApi</a></td>
-                <td>8200</td>
-              </tr>
-              <tr>
-                <td><a href="https://github.com/LiveChurchSolutions/MessagingApi/" target="_blank" rel="noreferrer">StreamingLiveChat</a></td>
-                <td>8201</td>
-              </tr>
-              <tr>
-                <td><a href="https://github.com/LiveChurchSolutions/MessagingApi/" target="_blank" rel="noreferrer">B1Api</a></td>
-                <td>8300</td>
-              </tr>
             </tbody>
           </table>
         </Grid>

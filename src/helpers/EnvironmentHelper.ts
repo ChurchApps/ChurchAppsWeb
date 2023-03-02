@@ -5,7 +5,6 @@ export class EnvironmentHelper {
   private static MembershipApi = "";
   static AppUrl = "";
   static GoogleAnalyticsTag = "";
-  private static B1Api = "";
   static B1SubUrl = "";
   static SLSubUrl = "";
 
@@ -17,14 +16,12 @@ export class EnvironmentHelper {
     }
     ApiHelper.apiConfigs = [
       { keyName: "StreamingLiveApi", url: EnvironmentHelper.StreamingLiveApi, jwt: "", permisssions: [] },
-      { keyName: "B1Api", url: EnvironmentHelper.B1Api, jwt: "", permisssions: [] },
       { keyName: "MembershipApi", url: EnvironmentHelper.MembershipApi, jwt: "", permisssions: [] }
     ];
   }
 
   static initDev = () => {
     EnvironmentHelper.StreamingLiveApi = process.env.REACT_APP_STREAMINGLIVE_API || "";
-    EnvironmentHelper.B1Api = process.env.REACT_APP_B1_API || "";
     EnvironmentHelper.B1SubUrl = process.env.REACT_APP_B1_SUB_URL || "";
     EnvironmentHelper.SLSubUrl = process.env.REACT_APP_SL_SUB_URL || "";
     EnvironmentHelper.MembershipApi = process.env.REACT_APP_MEMBERSHIP_API || "";
@@ -35,7 +32,6 @@ export class EnvironmentHelper {
   //NOTE: None of these values are secret.
   static initStaging = () => {
     EnvironmentHelper.StreamingLiveApi = "https://api.staging.streaminglive.church";
-    EnvironmentHelper.B1Api = "https://api.staging.b1.church";
     EnvironmentHelper.MembershipApi = "https://membershipapi.staging.churchapps.org";
     EnvironmentHelper.B1SubUrl = "https://{key}.staging.b1.church";
     EnvironmentHelper.SLSubUrl = "https://{key}.staging.streaminglive.church";
@@ -46,7 +42,6 @@ export class EnvironmentHelper {
   //NOTE: None of these values are secret.
   static initProd = () => {
     EnvironmentHelper.StreamingLiveApi = "https://api.streaminglive.church";
-    EnvironmentHelper.B1Api = "https://api.b1.church";
     EnvironmentHelper.MembershipApi = "https://membershipapi.churchapps.org";
     EnvironmentHelper.B1SubUrl = "https://{key}.b1.church";
     EnvironmentHelper.SLSubUrl = "https://{key}.streaminglive.church";
@@ -61,7 +56,6 @@ export class EnvironmentHelper {
     else if (host.indexOf("b1.church") > -1) result = "UA-164774603-10"
     else if (host.indexOf("streaminglive.church") > -1) result = "UA-164774603-1";
     return result;
-
   }
 
 }

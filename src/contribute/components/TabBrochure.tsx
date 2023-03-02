@@ -14,6 +14,6 @@ export const TabBrochure: React.FC = () => (
       <li><a href="https://github.com/LiveChurchSolutions/B1Web" target="_blank" rel="noopener noreferrer">B1Web</a> - The brochure site hosted at <a href="https://b1.church/" target="_blank" rel="noopener noreferrer">https://b1.church/</a></li>
     </ul>
 
-    <GitHubIssues repoNames={["ChurchAppsWeb", "ChumsWeb", "StreamingLiveWeb", "B1Web"]} />
+    <GitHubIssues labels={["design"]} />
   </div>
 )

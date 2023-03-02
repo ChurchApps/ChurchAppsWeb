@@ -10,17 +10,13 @@ export const TabNode: React.FC = () => (
     <Typography sx={{ fontSize: "24px", lineHeight: 1.2, fontWeight: 500, margin: "0 0 8px 0" }} component="h4">Shared Apis</Typography>
     <ul className="checkList">
       <li><a href="https://github.com/LiveChurchSolutions/MembershipApi" target="_blank" rel="noopener noreferrer">MembershipApi</a> - Maintaining data on members and guests is key component to many of our apps.  This api is for storing information about people and groups and the relationships between them.</li>
+      <li><a href="https://github.com/LiveChurchSolutions/MessagingApi" target="_blank" rel="noopener noreferrer">MessagingApi</a> - Used for comments, private messages and real-time chat</li>
+      <li><a href="https://github.com/LiveChurchSolutions/ContentApi" target="_blank" rel="noopener noreferrer">ContentApi</a> - All user facing content such as pages, sermons, links, and tabs.</li>
       <li><a href="https://github.com/LiveChurchSolutions/AttendanceApi" target="_blank" rel="noopener noreferrer">AttendanceApi</a> - Stores data on church structure (campuses, services, service times) and a history of who attended each.</li>
       <li><a href="https://github.com/LiveChurchSolutions/GivingApi" target="_blank" rel="noopener noreferrer">GivingApi</a> - Tracks all giving and provides access to aggregate and individual reports.  This is currently being expanded to connect to payment gateways to enable online giving.</li>
     </ul>
-    <Typography sx={{ fontSize: "24px", lineHeight: 1.2, fontWeight: 500, margin: "0 0 8px 0" }} component="h4">App Specific Apis</Typography>
-    <ul className="checkList">
-      <li><a href="https://github.com/LiveChurchSolutions/StreamingLiveApi" target="_blank" rel="noopener noreferrer">StreamingLiveApi</a> - An app specific API to enable churches to customize the landing page for online services.</li>
-      <li><a href="https://github.com/LiveChurchSolutions/StreamingLiveChat" target="_blank" rel="noopener noreferrer">StreamingLiveChat</a> - A WebSocket api for real-time chat currently used by StreamingLive and B1.church.</li>
-      <li><a href="https://github.com/LiveChurchSolutions/B1Api" target="_blank" rel="noopener noreferrer">B1Api</a> - Stores the configuration information for the B1 Church mobile app.</li>
-    </ul>
 
-    <GitHubIssues repoNames={["MembershipApi", "AttendanceApi", "GivingApi", "StreamingLiveApi", "StreamingLiveChat", "B1Api"]} />
+    <GitHubIssues labels={["node"]} />
 
   </div>
 )
