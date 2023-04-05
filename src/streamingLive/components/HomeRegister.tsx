@@ -1,16 +1,10 @@
 import * as React from "react";
 import { ErrorMessages } from "./";
 import { Register } from "../../appBase/pageComponents/components/Register";
-import ReactGA from "react-ga";
-import { EnvironmentHelper, UserInterface } from "../../helpers";
 import { Container, Box, Typography, Grid } from "@mui/material";
 
 export function HomeRegister() {
   const [customErrors, setCustomErrors] = React.useState<string[]>([]);
-
-  const trackUserRegister = async (user: UserInterface) => {
-    if (EnvironmentHelper.GoogleAnalyticsTag !== "") ReactGA.event({ category: "User", action: "Register" });
-  }
 
   return (
     <div id="register">
@@ -30,7 +24,6 @@ export function HomeRegister() {
                 updateErrors={setCustomErrors}
                 appName="StreamingLive"
                 appUrl={window.location.protocol + "//" + window.location.host}
-                userRegisteredCallback={trackUserRegister}
               />
             </div>
           </Grid>

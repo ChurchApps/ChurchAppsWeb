@@ -1,11 +1,12 @@
 import { ApiHelper } from "../appBase/helpers";
+import { CommonEnvironmentHelper } from "../appBase/helpers/CommonEnvironmentHelper";
 
 export class EnvironmentHelper {
   private static MembershipApi = "";
   static AppUrl = "";
-  static GoogleAnalyticsTag = "";
   static B1SubUrl = "";
   static SLSubUrl = "";
+  static Common = CommonEnvironmentHelper;
 
   static init = () => {
     switch (process.env.REACT_APP_STAGE) {
@@ -22,7 +23,6 @@ export class EnvironmentHelper {
     EnvironmentHelper.B1SubUrl = process.env.REACT_APP_B1_SUB_URL || "";
     EnvironmentHelper.SLSubUrl = process.env.REACT_APP_SL_SUB_URL || "";
     EnvironmentHelper.MembershipApi = process.env.REACT_APP_MEMBERSHIP_API || "";
-    EnvironmentHelper.GoogleAnalyticsTag = process.env.REACT_APP_GOOGLE_ANALYTICS || "";
     EnvironmentHelper.AppUrl = process.env.REACT_APP_CHUMS_APP_URL || ""
   }
 
@@ -32,7 +32,6 @@ export class EnvironmentHelper {
     EnvironmentHelper.B1SubUrl = "https://{key}.staging.b1.church";
     EnvironmentHelper.SLSubUrl = "https://{key}.staging.streaminglive.church";
     EnvironmentHelper.AppUrl = "https://accounts.staging.churchapps.org"
-    EnvironmentHelper.GoogleAnalyticsTag = "";
   }
 
   //NOTE: None of these values are secret.
@@ -41,15 +40,15 @@ export class EnvironmentHelper {
     EnvironmentHelper.B1SubUrl = "https://{key}.b1.church";
     EnvironmentHelper.SLSubUrl = "https://{key}.streaminglive.church";
     EnvironmentHelper.AppUrl = "https://app.chums.org"
-    EnvironmentHelper.GoogleAnalyticsTag = this.getAnalyticsTag();
+    EnvironmentHelper.Common.GoogleAnalyticsTag = this.getAnalyticsTag();
   }
 
   static getAnalyticsTag = () => {
-    let result = "UA-164774603-6";
+    let result = "G-KQ02ER7SZ9";
     const host = window.location.hostname.toLocaleLowerCase();
-    if (host.indexOf("chums.org") > -1) result = "UA-164774603-3"
-    else if (host.indexOf("b1.church") > -1) result = "UA-164774603-10"
-    else if (host.indexOf("streaminglive.church") > -1) result = "UA-164774603-1";
+    if (host.indexOf("chums.org") > -1) result = "G-64K0RGG73B"
+    else if (host.indexOf("b1.church") > -1) result = "G-3RQGLEE47Y"
+    else if (host.indexOf("streaminglive.church") > -1) result = "G-SP1TEJQC29";
     return result;
   }
 

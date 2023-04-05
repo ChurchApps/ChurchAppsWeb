@@ -3,22 +3,18 @@ import { Home } from "./Home";
 import { ContributePage } from "./contribute/ContributePage";
 import { Privacy } from "./Privacy";
 import { Terms } from "./Terms";
-import { Routes, Route, useLocation } from "react-router-dom";
-import ReactGA from "react-ga";
-import { EnvironmentHelper } from "./helpers";
+import { Routes, Route } from "react-router-dom";
 import { EnvironmentPage } from "./environment/EnvironmentPage";
 import { ChumsHome } from "./chums/ChumsHome";
 import { B1Home } from "./b1/B1Home";
 import { Login } from "./Login";
 import { StreamingLiveHome } from "./streamingLive/StreamingLiveHome";
+import { AnalyticsHelper } from "./appBase/helpers";
 
 export const Routing: React.FC = () => {
-  const location = useLocation();
-  if (EnvironmentHelper.GoogleAnalyticsTag !== "") {
-    ReactGA.initialize(EnvironmentHelper.GoogleAnalyticsTag);
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }
-  React.useEffect(() => { if (EnvironmentHelper.GoogleAnalyticsTag !== "") ReactGA.pageview(location.pathname + location.search); }, [location]);
+  const location = (typeof(window) === "undefined") ? null : window.location;
+  AnalyticsHelper.init();
+  React.useEffect(() => { AnalyticsHelper.logPageView() }, [location]);
 
   const determineHome = () => {
     let result = <Home />;

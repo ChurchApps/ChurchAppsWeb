@@ -2,15 +2,9 @@ import React from "react";
 import { Container, Grid, Box } from "@mui/material";
 import { ErrorMessages, EnvironmentHelper } from "./";
 import { Register } from "../appBase/pageComponents/components/Register";
-import ReactGA from "react-ga";
-import { UserInterface } from "../helpers";
 
 export function HomeRegister() {
   const [customErrors, setCustomErrors] = React.useState<string[]>([]);
-
-  const trackUserRegister = async (user: UserInterface) => {
-    if (EnvironmentHelper.GoogleAnalyticsTag !== "") ReactGA.event({ category: "User", action: "Register" });
-  }
 
   return (
     <div className="homeSection" id="registerSection">
@@ -24,7 +18,7 @@ export function HomeRegister() {
             <div className="title"><span>Sign up for ChurchApps</span></div>
             <h2 style={{marginTop: 0}}>Create an Account</h2>
             <ErrorMessages errors={customErrors} />
-            <Register updateErrors={setCustomErrors} appName="ChurchApps" appUrl={EnvironmentHelper.AppUrl} userRegisteredCallback={trackUserRegister} />
+            <Register updateErrors={setCustomErrors} appName="ChurchApps" appUrl={EnvironmentHelper.AppUrl} />
           </Grid>
         </Grid>
       </Container>
