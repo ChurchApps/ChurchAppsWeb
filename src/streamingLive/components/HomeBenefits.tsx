@@ -16,7 +16,7 @@ export const HomeBenefits: React.FC = () => (
           <p>The appearance of your platform is fully customizable and the service is completely free.</p>
         </Grid>
         <Grid item md={6} sx={{textAlign: "center", margin: "0 auto"}}>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/HC0B3hHdRew" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen frameBorder="0" title="iframe"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/BQQNY9uegW4" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen frameBorder="0" title="iframe"></iframe>
         </Grid>
       </Grid>
     </Container>
