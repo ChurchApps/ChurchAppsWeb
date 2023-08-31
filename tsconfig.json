@@ -10,6 +10,10 @@
       "dom.iterable",
       "esnext"
     ],
+    "paths": {
+      "react": ["./node_modules/react"],
+      "react-dom": ["./node_modules/react-dom"]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -31,4 +35,5 @@
   "exclude": [
     "types"
   ]
+  
 }
