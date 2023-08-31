@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Grid, Box } from "@mui/material";
 import { ErrorMessages, EnvironmentHelper } from "./";
-import { Register } from "../appBase/pageComponents/components/Register";
+import { Register } from "@churchapps/apphelper";
 
 export function HomeRegister() {
   const [customErrors, setCustomErrors] = React.useState<string[]>([]);

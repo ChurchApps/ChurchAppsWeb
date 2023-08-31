@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ErrorMessages } from "../../components";
-import { Register } from "../../appBase/pageComponents/components/Register";
+import { Register } from "@churchapps/apphelper";
 import { Container, Box, Typography, Grid } from "@mui/material";
 
 export function HomeRegister() {

@@ -1,7 +1,7 @@
 import React from "react";
 import { GitHubIssue } from "../../helpers";
 import { Typography } from "@mui/material";
-import useMountedState from "../../appBase/hooks/useMountedState";
+import { useMountedState } from "@churchapps/apphelper";
 
 interface Props { labels: string[] }
 

@@ -14,9 +14,6 @@ export const CypressProjects: React.FC = () => (
           </p>
           <ol dir="auto">
             <li>Follow the guide to get the app you wish to test running on your machine.</li>
-            <li>Pull the <a href="https://github.com/LiveChurchSolutions/AppBase" target="_blank" rel="noreferrer">appBase</a> submodule with: <code>git submodule init &amp;&amp; git submodule update</code>.<br />
-              <i>* The appBase repo contains shared code that is used between all of the React projects.</i>
-            </li>
             <li>Install the dependencies with: <code>npm install</code></li>
             <li>Copy <code>cypress.env.json.template</code> environment file to <code>cypress.env.json</code> and adjust as needed.</li>
           </ol>

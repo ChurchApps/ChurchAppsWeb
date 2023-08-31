@@ -1,5 +1,5 @@
 import React from "react";
-import { FloatingSupport } from "../appBase/components";
+import { FloatingSupport } from "@churchapps/apphelper";
 import { HomeHero, HomeBenefits, HomeFeatures, HomeRegister } from "./components"
 import "./StreamingLive.css"
 

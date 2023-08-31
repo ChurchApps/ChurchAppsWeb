@@ -1,3 +1,3 @@
-export { ApiHelper, UniqueIdHelper } from "../appBase/helpers"
-export * from "./EnvironmentHelper"
-export * from "./Interfaces"
+export { ApiHelper, UniqueIdHelper } from "@churchapps/apphelper";
+export * from "./EnvironmentHelper";
+export * from "./Interfaces";

@@ -9,7 +9,7 @@ import { HomeGiving } from "./components/HomeGiving";
 import { HomeAttendance } from "./components/HomeAttendance";
 import { HomeExport } from "./components/HomeExport";
 import { HomeTestimony } from "./components/HomeTestimony";
-import { FloatingSupport } from "../appBase/components";
+import { FloatingSupport } from "@churchapps/apphelper";
 
 export const ChumsHome = () => (
   <>

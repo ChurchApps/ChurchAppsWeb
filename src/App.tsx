@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routing } from "./Routing";
-import { Themes } from "./appBase/helpers";
+import { Themes } from "@churchapps/apphelper";
 import { UserProvider } from "./UserContext"
 import { CookiesProvider } from "react-cookie";
 import { CssBaseline, ThemeProvider } from "@mui/material";

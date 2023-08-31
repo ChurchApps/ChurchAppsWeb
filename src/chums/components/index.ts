@@ -1,5 +1,4 @@
-export { ErrorMessages, InputBox } from "../../appBase/components";
-export * from "../../appBase/interfaces";
+export { ErrorMessages, InputBox } from "@churchapps/apphelper";
 export { Header } from "./Header";
 export { Footer } from "./Footer";
 

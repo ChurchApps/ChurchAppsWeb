@@ -9,7 +9,7 @@ import { ChumsHome } from "./chums/ChumsHome";
 import { B1Home } from "./b1/B1Home";
 import { Login } from "./Login";
 import { StreamingLiveHome } from "./streamingLive/StreamingLiveHome";
-import { AnalyticsHelper } from "./appBase/helpers";
+import { AnalyticsHelper } from "@churchapps/apphelper";
 
 export const Routing: React.FC = () => {
   const location = (typeof(window) === "undefined") ? null : window.location;
