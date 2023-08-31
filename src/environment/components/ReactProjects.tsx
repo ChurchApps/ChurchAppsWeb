@@ -19,9 +19,6 @@ export const ReactProjects: React.FC = () => (
           </p>
           <ol dir="auto">
             <li>Copy <code>dotenv.sample.txt</code> to <code>.env</code> and updated it to point to the appropriate API urls.</li>
-            <li>Pull the <a href="https://github.com/LiveChurchSolutions/AppBase" target="_blank" rel="noreferrer">appBase</a> submodule with: <code>git submodule init &amp;&amp; git submodule update</code>.<br />
-              <i>* The appBase repo contains shared code that is used between all of the React projects.</i>
-            </li>
             <li>Install the dependencies with: <code>npm install</code></li>
             <li>run <code>npm start</code> to launch the project.</li>
           </ol>
@@ -86,9 +83,6 @@ export const ReactProjects: React.FC = () => (
           </p>
           <ol dir="auto">
             <li>Copy <code>dotenv.sample.txt</code> to <code>.env</code> and updated it to point to the appropriate API urls.</li>
-            <li>Pull the <a href="https://github.com/LiveChurchSolutions/AppBase">appBase</a> submodule with: <code>git submodule init &amp;&amp; git submodule update</code>.<br />
-              <i>* The appBase repo contains shared code that is used between all of the React projects.</i>
-            </li>
             <li>Install the dependencies with: <code>npm install</code></li>
             <li>run <code>npm run dev</code> to launch the project.</li>
           </ol>

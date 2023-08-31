@@ -1,9 +1,9 @@
 import React from "react";
 import { useCookies } from "react-cookie";
 import UserContext from "./UserContext";
-import { LoginPage } from "./appBase/pageComponents/LoginPage";
-import { EnvironmentHelper } from "./helpers"
-import { UserHelper } from "./appBase/helpers"
+import { LoginPage } from "@churchapps/apphelper";
+import { EnvironmentHelper } from "./helpers";
+import { UserHelper } from "@churchapps/apphelper";
 import { Box } from "@mui/material";
 
 export const Login: React.FC = (props: any) => {

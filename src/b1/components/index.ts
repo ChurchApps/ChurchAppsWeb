@@ -1,4 +1,4 @@
-export { ErrorMessages, InputBox } from "../../appBase/components";
+export { ErrorMessages, InputBox } from "@churchapps/apphelper";
 
 export * from "../../helpers"
 export { About } from "./About"

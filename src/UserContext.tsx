@@ -1,5 +1,5 @@
 import React from "react"
-import { LoginUserChurchInterface, PersonInterface, UserContextInterface, UserInterface } from "./appBase/interfaces";
+import { LoginUserChurchInterface, PersonInterface, UserContextInterface, UserInterface } from "@churchapps/apphelper";
 
 const UserContext = React.createContext<UserContextInterface | undefined>(undefined);
 interface Props { children: React.ReactNode; }
