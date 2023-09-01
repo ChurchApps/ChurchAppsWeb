@@ -1,9 +1,9 @@
 name: "Deploy All Prod"
 
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 10 * * 1"
+#on:
+#  workflow_dispatch:
+#  schedule:
+#    - cron: "0 10 * * 1"
 
 jobs:
   notify:
