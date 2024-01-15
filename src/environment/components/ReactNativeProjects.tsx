@@ -1,18 +1,20 @@
 import React from "react";
 import { Container, Grid, Typography } from "@mui/material";
+import { GitHubIssues } from "../../contribute/components/GitHubIssues";
 
 export const ReactNativeProjects: React.FC = () => (
-  <div id="mobile" className="homeSection alt">
+  <div id="mobile" className="homeSection">
     <Container fixed>
-      <Typography sx={{lineHeight: 1.2, marginTop: 0}} component="h2">Mobile Project Setup</Typography>
+
       <Grid container spacing={3}>
-        <Grid item md={9} xs={12}>
+        <Grid item md={8} xs={12}>
+          <Typography sx={{lineHeight: 1.2, marginTop: 0}} component="h2">Mobile Project Setup</Typography>
           <p>
             All of the mobile device projects are built in React Native.  This allows us to have a single codebase for iOS and Android.
             At this time B1 is available on both platforms while LessonsScreen and ChumsCheckin are available for Android only, but offered in both the Google Play and Amazon Fire stores.
           </p>
           <ol dir="auto">
-            <li>Set up the corresponding website and apis first.</li>
+            <li>Set up the corresponding website and APIs first.</li>
             <li>Clone the appropriate repo from GitHub.</li>
             <li>Install the dependencies with: <code>npm install</code></li>
             <li>Run <code>npm start</code> to start the React Native server</li>
@@ -23,29 +25,8 @@ export const ReactNativeProjects: React.FC = () => (
             </li>
           </ol>
         </Grid>
-        <Grid item md={3} xs={12}>
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Project</th>
-                <th>Port</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><a href="https://github.com/LiveChurchSolutions/B1Mobile/" target="_blank" rel="noreferrer">B1Mobile</a></td>
-                <td>8081</td>
-              </tr>
-              <tr>
-                <td><a href="https://github.com/LiveChurchSolutions/ChumsCheckin/" target="_blank" rel="noreferrer">ChumsCheckin</a></td>
-                <td>8081</td>
-              </tr>
-              <tr>
-                <td><a href="https://github.com/LiveChurchSolutions/LessonsScreen/" target="_blank" rel="noreferrer">LessonsScreen</a></td>
-                <td>8081</td>
-              </tr>
-            </tbody>
-          </table>
+        <Grid item md={4} xs={12}>
+          <GitHubIssues labels={["react-native"]} />
         </Grid>
       </Grid>
     </Container>

@@ -3,11 +3,15 @@ import { GitHubIssue } from "../../helpers";
 import { Typography } from "@mui/material";
 import { useMountedState } from "@churchapps/apphelper";
 
-interface Props { labels: string[] }
+interface Props {
+  labels: string[],
+  repo?: string
+ }
 
 export const GitHubIssues: React.FC<Props> = (props) => {
   const [issues, setIssues] = React.useState<GitHubIssue[]>([]);
   const isMounted = useMountedState();
+  const repo = props.repo || "ChurchAppsSupport";
 
   const getAnonymous = async (url: string) => {
     try {
@@ -21,16 +25,20 @@ export const GitHubIssues: React.FC<Props> = (props) => {
   const loadData = React.useCallback(() => {
     const promises: Promise<any>[] = [];
     props.labels.forEach(label => {
-      const url = "https://api.github.com/repos/LiveChurchSolutions/ChurchAppsSupport/issues?state=open&label=" + label;
+      const url = "https://api.github.com/repos/ChurchApps/" + repo + "/issues?state=open&labels=" + label;
       promises.push(getAnonymous(url))
     });
+    if (props.labels.length===0) {
+      const url = "https://api.github.com/repos/ChurchApps/" + repo + "/issues?state=open";
+      promises.push(getAnonymous(url))
+    }
     Promise.all(promises).then((responses: any[]) => {
       const result: GitHubIssue[] = [];
       responses.forEach((resp: any[]) => {
         try {
           resp.forEach((item: any) => {
             result.push({
-              repoName: item.repository_url.replace("https://api.github.com/repos/LiveChurchSolutions/", ""),
+              repoName: item.repository_url.replace("https://api.github.com/repos/ChurchApps/", ""),
               title: item.title,
               url: item.html_url,
               number: item.number
@@ -50,7 +58,6 @@ export const GitHubIssues: React.FC<Props> = (props) => {
     const result: JSX.Element[] = [];
     issues.forEach((issue, i) => {
       result.push(<tr key={i}>
-        <td>{issue.repoName}</td>
         <td><a href={issue.url}>{issue.title}</a></td>
       </tr>);
 
@@ -64,11 +71,10 @@ export const GitHubIssues: React.FC<Props> = (props) => {
   else {
     return (
       <>
-        <Typography sx={{fontSize: "28px", fontWeight: 500, margin: 0}} component="h4">Open Issues</Typography>
+        <Typography sx={{fontSize: "28px", fontWeight: 500, margin: 0}} component="h4">Current Needs</Typography>
         <table className="table table-striped">
           <thead>
             <tr>
-              <th>Repository</th>
               <th>Issue</th>
             </tr>
           </thead>

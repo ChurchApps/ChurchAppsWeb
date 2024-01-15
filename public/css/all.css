@@ -266,6 +266,9 @@ p.lead {
   font-weight: bold;
 }
 
+.pre {
+  white-space-collapse: preserve-breaks;
+}
 
 /*
 .btn-primary { background-color:#77cc00; border-color:#70db86; }

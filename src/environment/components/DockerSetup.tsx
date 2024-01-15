@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Grid, Typography } from "@mui/material";
 
 export const DockerSetup: React.FC = () => (
-  <div id="docker" className="homeSection">
+  <div id="docker" className="homeSection alt">
     <Container fixed>
       <Typography sx={{lineHeight: 1.2, marginTop: 0}} component="h2">Docker Setup</Typography>
       <p>See <a href="https://youtu.be/M81I6gmKqdI" target="_blank" rel="noreferrer">setup video</a>.</p>
