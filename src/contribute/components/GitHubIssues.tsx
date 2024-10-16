@@ -52,7 +52,7 @@ export const GitHubIssues: React.FC<Props> = (props) => {
         setIssues(result);
       }
     });
-  }, [props.labels, isMounted]);
+  }, [props.labels, repo, isMounted]);
 
   const getItems = () => {
     const result: JSX.Element[] = [];
