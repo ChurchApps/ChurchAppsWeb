@@ -5,7 +5,7 @@ export const Donate: React.FC = () => (
   <div className="homeSection">
     <Container fixed>
       <Grid container spacing={3}>
-        <Grid item md={9} xs={12}>
+        <Grid item md={9} xs={12} className="animated fadeIn normal">
           <div className="title">Donations Made Easy</div>
           <Typography component="h2" sx={{ fontSize: "32px", fontWeight: 700, lineHeight: 1.2, margin: "0 0 8px 0" }}>Simple Online Giving</Typography>
           <p>Your church members have easy access to manage all of their donations.  Link a bank account or enter credit card info and use either payment method to make a donation at any time or set up recurring donations.</p>
@@ -13,7 +13,7 @@ export const Donate: React.FC = () => (
           <p>Setting up donations is easy for churches.  Unlike many other platforms, <u>B1 does not collect any fees</u>.  Your church will set up an account directly with Stripe and all payments are processed securely by Stripe with no sensitive information going to B1 servers.  Stripe offers discounts for non-profits of 2.2% + $0.30 for credit cards and 0.8% for bank accounts.</p>
         </Grid>
         <Grid item md={3} xs={12}>
-          <Box maxWidth="310px" m="0 auto">
+          <Box maxWidth="310px" m="0 auto" className="animated grow normal">
             <img src="/images/b1/phone-donate.png" alt="B1 Church App" />
           </Box>
         </Grid>

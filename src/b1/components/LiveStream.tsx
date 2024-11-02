@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Grid, Typography, Box } from "@mui/material";
 
 export const LiveStream: React.FC = () => (
-  <div className="homeSection alt">
+  <div className="homeSection alt animated colorize slow">
     <Container fixed>
       <Grid container spacing={3}>
         <Grid item md={3} xs={12}>

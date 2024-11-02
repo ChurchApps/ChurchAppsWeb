@@ -4,7 +4,7 @@ import { Container, Grid, Typography, Box } from "@mui/material";
 export const Directory: React.FC = () => (
   <div className="homeSection">
     <Container fixed>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} className="animated focus fast">
         <Grid item md={9} xs={12}>
           <div className="title">Stay Connected</div>
           <Typography component="h2" sx={{ fontSize: "32px", fontWeight: 700, lineHeight: 1.2, margin: "0 0 8px 0" }}>Member Directory</Typography>

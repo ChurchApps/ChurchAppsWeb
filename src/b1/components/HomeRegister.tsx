@@ -20,7 +20,7 @@ export function HomeRegister() {
           </Grid>
           <Grid item md={6}>
             <ErrorMessages errors={customErrors} />
-            <div id="registerBox">
+            <div id="registerBox" className="animated pulse fast">
               <Register updateErrors={setCustomErrors} appName="B1" />
             </div>
           </Grid>

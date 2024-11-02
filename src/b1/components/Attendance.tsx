@@ -6,11 +6,11 @@ export const Attendance: React.FC = () => (
     <Container fixed>
       <Grid container spacing={3}>
         <Grid item md={3} xs={12}>
-          <Box maxWidth="170px" m="0 auto">
+          <Box maxWidth="170px" m="0 auto" className="animated shrink normal">
             <img src="/images/b1/phone-attendance.png" alt="B1 Church App" />
           </Box>
         </Grid>
-        <Grid item md={9} xs={12}>
+        <Grid item md={9} xs={12} className="animated fadeIn normal">
           <div className="title">Ditch Paper Attendance Cards</div>
           <Typography component="h2" sx={{ fontSize: "32px", fontWeight: 700, lineHeight: 1.2, margin: "0 0 8px 0" }}>Self-Serve Attendance</Typography>
           <p>Eliminate the need to print paper communication cards with online attendance.  Both members and visitors can easily mark themselves and their family members in attendance and specify the exact services and classes attended.</p>
