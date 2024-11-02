@@ -1,17 +1,7 @@
-.animate {
-  animation-fill-mode: forwards;
-}
-.animate.fast {
-  animation-duration: 0.5s;
-}
-
-.animate.normal {
-  animation-duration: 1.5s;
-}
-
-.animate.slow {
-  animation-duration: 1.5s;
-}
+.animate { animation-fill-mode: forwards; }
+.animate.fast { animation-duration: 0.5s; }
+.animate.normal { animation-duration: 1.5s; }
+.animate.slow { animation-duration: 4.5s; }
 
 @keyframes slideRight {
   from { transform:translateX(-100%); opacity:0;  }
