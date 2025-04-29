@@ -1,58 +1,60 @@
+@import './B1Variables.css';
+
 #b1 #hero .title {
-  margin-top: 30px;
-  font-size: 18px;
-  margin-bottom: 0px;
+  margin-top: var(--b1-spacing-lg);
+  font-size: var(--b1-font-size-large);
+  margin-bottom: 0;
 }
 
 #b1 .title {
-  font-size: 14px;
+  font-size: var(--b1-font-size-small);
   text-transform: uppercase;
-  margin-bottom: 10px;
-  color: #1b75bc;
+  margin-bottom: var(--b1-spacing-sm);
+  color: var(--b1-primary);
   font-weight: bold;
 }
 
 #b1 .homeSection .title {
-  color: #1b75bc;
+  color: var(--b1-primary);
 }
 
 #b1 .homeSection .title span {
-  color: #1b75bc;
+  color: var(--b1-primary);
 }
 
 #b1 .homeSection.alt h2 span {
-  color: #299ffc;
+  color: var(--b1-primary-light);
 }
 
 #b1 .homeSection.alt .title {
-  color: #299ffc;
+  color: var(--b1-primary-light);
 }
 
 #b1 #register {
-  padding-top: 40px;
-  padding-bottom: 80px;
+  padding-top: var(--b1-spacing-xl);
+  padding-bottom: var(--b1-spacing-xxl);
 }
 
 #b1 h2 span {
-  color: #1b75bc;
+  color: var(--b1-primary);
 }
 
 #b1 #registerBox {
-  background-color: #EEE;
-  border: 1px solid #CCC;
-  border-radius: 5px;
-  padding: 20px;
+  background-color: var(--b1-background-alt);
+  border: 1px solid var(--b1-border);
+  border-radius: var(--b1-border-radius);
+  padding: var(--b1-spacing-md);
 }
 
 #b1 #registerBox .MuiTextField-root {
-  background-color: #FFF;
+  background-color: var(--b1-background);
 }
 
 #b1 a {
-  color: #1b75bc;
+  color: var(--b1-primary);
   text-decoration: none;
 }
 
 #b1 a.MuiButton-contained {
-  color:#FFFFFF;
+  color: var(--b1-text-light);
 }

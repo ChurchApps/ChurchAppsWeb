@@ -1,0 +1,36 @@
+:root {
+  /* Colors */
+  --b1-primary: #1b75bc;
+  --b1-primary-light: #299ffc;
+  --b1-background: #FFFFFF;
+  --b1-background-alt: #EEEEEE;
+  --b1-border: #CCCCCC;
+  --b1-text: #000000;
+  --b1-text-light: #FFFFFF;
+
+  /* Typography */
+  --b1-font-size-small: 14px;
+  --b1-font-size-normal: 16px;
+  --b1-font-size-large: 18px;
+  --b1-font-size-xlarge: 32px;
+  --b1-font-size-xxlarge: 60px;
+
+  /* Spacing */
+  --b1-spacing-xs: 5px;
+  --b1-spacing-sm: 10px;
+  --b1-spacing-md: 20px;
+  --b1-spacing-lg: 30px;
+  --b1-spacing-xl: 40px;
+  --b1-spacing-xxl: 80px;
+
+  /* Border Radius */
+  --b1-border-radius: 5px;
+
+  /* Transitions */
+  --b1-transition-fast: 0.2s;
+  --b1-transition-normal: 0.3s;
+  --b1-transition-slow: 0.5s;
+
+  /* Shadows */
+  --b1-shadow: 4px 2px 2px rgba(0, 0, 0, 0.1);
+} 

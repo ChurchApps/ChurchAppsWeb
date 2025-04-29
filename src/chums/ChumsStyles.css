@@ -1,0 +1,103 @@
+@import './ChumsVariables.css';
+
+/* Hero Section */
+#hero {
+  padding-top: var(--chums-spacing-xl);
+  padding-bottom: var(--chums-spacing-xxl);
+  text-align: center;
+}
+
+
+/* Home Section */
+.homeSection {
+  padding: var(--chums-spacing-xl) 0;
+}
+
+.homeSection.alt {
+  background-color: var(--chums-background-alt);
+}
+
+/* Title Styles */
+.title {
+  font-size: var(--chums-font-size-small);
+  text-transform: uppercase;
+  margin-bottom: var(--chums-spacing-sm);
+  color: var(--chums-primary);
+  font-weight: bold;
+}
+
+.title span {
+  color: var(--chums-primary);
+}
+
+/* Feature Icons */
+.homeFeature {
+  text-align: center;
+  margin-bottom: var(--chums-spacing-lg);
+}
+
+.homeFeature .MuiBox-root {
+  width: var(--chums-feature-icon-size);
+  height: var(--chums-feature-icon-size);
+  border-radius: var(--chums-border-radius-circle);
+  border: var(--chums-feature-icon-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--chums-spacing-xs) auto;
+}
+
+.homeFeature .MuiIcon-root {
+  font-size: var(--chums-feature-icon-font-size);
+  color: var(--chums-success);
+}
+
+/* Register Section */
+#registerSection {
+  padding-top: var(--chums-spacing-xl);
+  padding-bottom: var(--chums-spacing-xxl);
+}
+
+/* Footer */
+#footer {
+  background-color: var(--chums-primary);
+  color: var(--chums-text-light);
+  padding: var(--chums-spacing-xl) 0;
+}
+
+#footer a {
+  color: var(--chums-text-light);
+  text-decoration: none;
+}
+
+/* Navigation */
+#navbar {
+  background-color: var(--chums-background);
+  box-shadow: var(--chums-shadow);
+}
+
+#navSpacer {
+  height: 64px;
+}
+
+/* Links */
+a {
+  color: var(--chums-primary);
+  text-decoration: none;
+  transition: color var(--chums-transition-fast);
+}
+
+a:hover {
+  color: var(--chums-primary-light);
+}
+
+/* Buttons */
+.MuiButton-contained {
+  background-color: var(--chums-success) !important;
+  color: var(--chums-text-light) !important;
+}
+
+.MuiButton-outlined {
+  border-color: var(--chums-primary) !important;
+  color: var(--chums-primary) !important;
+} 
