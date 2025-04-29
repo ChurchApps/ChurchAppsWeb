@@ -10,6 +10,8 @@ import { HomeAttendance } from "./components/HomeAttendance";
 import { HomeExport } from "./components/HomeExport";
 import { HomeTestimony } from "./components/HomeTestimony";
 import { FloatingSupport } from "@churchapps/apphelper";
+import "./ChumsVariables.css";
+import "./ChumsStyles.css";
 
 export const ChumsHome = () => {
   useEffect(() => {

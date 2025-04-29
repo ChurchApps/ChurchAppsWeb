@@ -1,0 +1,43 @@
+:root {
+  /* Colors */
+  --chums-primary: #03a9f4;
+  --chums-primary-light: #4fc3f7;
+  --chums-background: #FFFFFF;
+  --chums-background-alt: #F5F5F5;
+  --chums-border: #E0E0E0;
+  --chums-text: #000000;
+  --chums-text-light: #FFFFFF;
+  --chums-success: #4CAF50;
+
+  /* Typography */
+  --chums-font-size-small: 14px;
+  --chums-font-size-normal: 16px;
+  --chums-font-size-large: 18px;
+  --chums-font-size-xlarge: 32px;
+  --chums-font-size-xxlarge: 60px;
+
+  /* Spacing */
+  --chums-spacing-xs: 5px;
+  --chums-spacing-sm: 10px;
+  --chums-spacing-md: 20px;
+  --chums-spacing-lg: 30px;
+  --chums-spacing-xl: 40px;
+  --chums-spacing-xxl: 80px;
+
+  /* Border Radius */
+  --chums-border-radius: 5px;
+  --chums-border-radius-circle: 50%;
+
+  /* Transitions */
+  --chums-transition-fast: 0.2s;
+  --chums-transition-normal: 0.3s;
+  --chums-transition-slow: 0.5s;
+
+  /* Shadows */
+  --chums-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* Feature Icons */
+  --chums-feature-icon-size: 60px;
+  --chums-feature-icon-border: 3px solid var(--chums-primary);
+  --chums-feature-icon-font-size: 30px;
+} 
