@@ -9,7 +9,10 @@ export const HomeHero: React.FC = () => (
         <Grid item md={8} xs={12} sx={{textAlign: "center"}}>
           <h1>Completely <span>Free, Open-Source</span><br />Church Management Platform.</h1>
           <p>Reliable church management software is a critical component for any growing church.  It frees up staff and volunteer time while ensuring processes are adhered to and you are effectively engaging with your congregation and guests.</p>
-          <div><Button variant="contained" color="success" size="large" href="#register">Get Started for Free</Button></div>
+          <div style={{display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap"}}>
+            <Button variant="outlined" color="primary" size="large" href="https://chumsdemo.churchapps.org/" target="_blank" rel="noopener noreferrer">Try Demo</Button>
+            <Button variant="contained" color="success" size="large" href="#register">Get Started for Free</Button>
+          </div>
         </Grid>
       </Grid>
     </Container>
