@@ -17,14 +17,14 @@ export function HomeRegister() {
             <div className="title"><span>Join CHUMS</span></div>
             <h2>Try Before You Register</h2>
             <p>Want to see CHUMS in action first? Check out our demo with sample church data.</p>
-            
+
             <Box sx={{ mb: 3 }}>
-              <Button 
-                variant="outlined" 
-                color="primary" 
-                size="large" 
-                href="https://chumsdemo.churchapps.org/" 
-                target="_blank" 
+              <Button
+                variant="outlined"
+                color="primary"
+                size="large"
+                href="https://chumsdemo.churchapps.org/"
+                target="_blank"
                 rel="noopener noreferrer"
                 sx={{ mr: 2, mb: 1 }}
               >
